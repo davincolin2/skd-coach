@@ -65,6 +65,7 @@ window.MATERI = {
         { k: 'Etos Kerja', v: 'Mandiri, Kerja Keras, Sederhana (tidak bergaya hidup mewah / flexing)' },
         { k: 'Sikap Sosial', v: 'Peduli, Berani, Adil (berani menolak & melaporkan kecurangan)' },
         { k: 'Batas Gratifikasi', v: 'Wajib lapor ke KPK maksimal 30 hari kerja sejak diterima' },
+        { k: 'Anti Split-Contract', v: 'Dilarang memecah paket pengadaan E-Katalog untuk menghindari tender terbuka' },
         { k: 'ASN BerAKHLAK', v: 'Berorientasi Pelayanan, Akuntabel, Kompeten, Harmonis, Loyal, Adaptif, Kolaboratif' }
       ],
       inti: [
@@ -352,7 +353,7 @@ window.MATERI = {
       peta: [
         { k: 'Ada Aplikasi/Sistem Baru', v: 'Antusias mempelajari secara mandiri/pelatihan dan membantu rekan yang masih kesulitan' },
         { k: 'Menerima Berita Viral/Hoaks', v: 'Verifikasi ke sumber resmi terlebih dahulu; jangan pernah meneruskan pesan yang belum pasti kebenarannya' },
-        { k: 'Keamanan Data Kantor', v: 'Gunakan sandi kuat, tolak tautan mencurigakan (phishing), dan jangan unggah dokumen internal ke publik' },
+        { k: 'Keamanan Data Kantor', v: 'Gunakan sandi kuat, tolak tautan mencurigakan (phishing), waspadai deepfake pimpinan (verifikasi silang), dan jangan unggah dokumen internal ke publik' },
         { k: 'Generative AI & UU PDP', v: 'Patuhi UU No. 27/2022: dilarang unggah NIK/data rahasia ke AI publik; wajib sanitasi/masking data sensitif' }
       ],
       inti: [

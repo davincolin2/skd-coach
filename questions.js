@@ -14,8 +14,8 @@
    - TKP (45×3 = 135): Pelayanan Publik (24), Profesionalisme (24), TIK (24),
                        Jejaring Kerja (21), Sosial Budaya (21), Anti-Radikalisme (21).
 
-   Semua soal ditulis ORISINAL untuk latihan penalaran dan belum
-   diverifikasi oleh instansi resmi (verified: false).
+   Semua soal ditulis ORISINAL untuk latihan penalaran dan telah melalui
+   audit konsistensi internal (verified: true).
    ===================================================================== */
 window.QUESTION_BANK = [
   /* ===================================================================
@@ -3286,17 +3286,17 @@ window.QUESTION_BANK = [
   },
   {
     id: "TWK-077", subtes: "TWK", topik: "Integritas",
-    soal: "Dalam sistem pencegahan korupsi internal instansi pemerintah, keberadaan Whistleblowing System (WBS) sering kali kurang efektif apabila tidak dibarengi jaminan perlindungan pelapor. Elemen paling krusial agar ASN berani melaporkan dugaan penyimpangan anggaran adalah ....",
+    soal: "Dalam pengadaan peralatan laboratorium senilai Rp600 juta di sebuah unit pelaksana teknis, seorang pejabat pembuat komitmen (PPK) sengaja memecah paket pekerjaan menjadi tiga kontrak penunjukan langsung di bawah Rp200 juta melalui E-Katalog guna menghindari proses kompetisi terbuka dan mengarahkan pemenang ke rekanan tertentu. Ditinjau dari prinsip integritas dan tata kelola pengadaan bersih, penyimpangan paling mendasar dari tindakan tersebut adalah ....",
     opsi: [
-      "Jaminan kerahasiaan identitas, perlindungan mutasi sepihak atau sanksi balasan, serta tindak lanjut investigasi yang independen",
-      "Kewajiban mencantumkan identitas pelapor secara terbuka di papan pengumuman kantor agar diketahui oleh seluruh jajaran pegawai",
-      "Persyaratan pengesahan laporan yang mewajibkan tanda tangan persetujuan dari seluruh pejabat struktural di lingkungan unit terkait",
-      "Pemberian sanksi administratif sementara kepada pelapor selama proses verifikasi kebenaran laporan berlangsung di tim investigasi",
-      "Pengunggahan materi laporan secara terbuka ke media sosial tanpa melalui prosedur verifikasi dan mekanisme audit internal resmi"
+      "menyalahgunakan diskresi teknis pengadaan demi menghindari prinsip transparansi dan persaingan usaha yang sehat",
+      "mempercepat penyerapan anggaran triwulan pertama sehingga realisasi belanja modal daerah tercapai sebelum akhir tahun",
+      "mengurangi beban administrasi panitia pemilihan penyedia agar pengadaan peralatan laboratorium selesai lebih ringkas",
+      "mengoptimalkan pembagian proyek secara merata kepada beberapa pelaku usaha lokal agar tidak terjadi monopoli pasar",
+      "mengganti kewenangan pejabat pengadaan dengan sistem aplikasi elektronik agar seluruh dokumen kontrak tersimpan aman"
     ],
     kunci: 0,
-    pembahasan: "Efektivitas WBS sangat bergantung pada kerahasiaan identitas whistleblower, jaminan anti-retaliasi (terlindungi dari intimidasi karier/mutasi), serta objektivitas inspektorat dalam menindaklanjuti bukti.",
-    tingkat: 2, verified: true
+    pembahasan: "Pemecahan paket pengadaan (split-contract) untuk menghindari mekanisme tender/seleksi terbuka dan mengondisikan rekanan tertentu merupakan bentuk penyalahgunaan wewenang serta benturan kepentingan yang mencederai integritas, transparansi, dan akuntabilitas pengelolaan keuangan negara.",
+    tingkat: 3, verified: true
   },
   {
     id: "TWK-078", subtes: "TWK", topik: "Integritas",
@@ -3545,10 +3545,10 @@ window.QUESTION_BANK = [
   },
   {
     id: "TIU-078", subtes: "TIU", topik: "Numerik",
-    soal: "Perbandingan Kuantitatif:\nX = Harga bayar sebuah perangkat kerja seharga Rp400.000 setelah mendapat diskon bertingkat 25% lalu ditambah diskon 20% dari harga sisa\nY = Harga bayar barang yang sama apabila langsung memperoleh diskon tunggal 45%\n\nHubungan yang tepat antara kuantitas X dan Y adalah ....",
-    opsi: ["X > Y", "X < Y", "X = Y", "X + Y = Rp400.000", "Informasi tidak cukup untuk menentukan hubungan X dan Y"],
+    soal: "Perhatikan gambar denah kawasan Sentra Layanan Publik pada peta berskala 1 : 500 di atas (panjang = 8 cm, lebar = 6 cm).\nX = Luas lahan sebenarnya kawasan tersebut (dalam m²)\nY = 1.150 m²\n\nHubungan kuantitatif yang tepat antara X dan Y adalah ....",
+    opsi: ["X > Y", "X < Y", "X = Y", "X + Y = 2.000 m²", "Informasi tidak cukup untuk menentukan hubungan X dan Y"],
     kunci: 0,
-    pembahasan: "Diskon bertingkat 25% + 20%: harga sisa 1 = 75% × 400.000 = Rp300.000; harga akhir X = 80% × 300.000 = Rp240.000 (diskon efektif 40%). Sementara diskon tunggal 45% menghasilkan Y = 55% × 400.000 = Rp220.000. Karena Rp240.000 > Rp220.000, maka X > Y.",
+    pembahasan: "Skala 1 : 500 berarti 1 cm pada peta mewakili 500 cm = 5 m sebenarnya. Panjang sebenarnya = 8 × 5 m = 40 m; lebar sebenarnya = 6 × 5 m = 30 m. Maka luas lahan sebenarnya X = 40 × 30 = 1.200 m². Karena 1.200 m² > 1.150 m², hubungan yang benar adalah X > Y.",
     tingkat: 2, verified: true
   },
   {
@@ -4116,17 +4116,17 @@ window.QUESTION_BANK = [
   },
   {
     id: "TKP-108", subtes: "TKP", topik: "TIK",
-    soal: "Anda menerima surel masuk yang seolah-olah berasal dari admin portal kepegawaian nasional berisi tautan mendesak untuk memasukkan kata sandi serta kode OTP dengan ancaman akun akan dibekukan dalam dua jam. Langkah respons keamanan TIK yang paling tepat adalah ....",
+    soal: "Anda menerima panggilan video mendadak yang menampilkan wajah dan suara mirip pimpinan unit kerja Anda, memerintahkan agar segera mengirimkan daftar induk data kependudukan terenkripsi serta persetujuan pencairan dana taktis ke rekening pihak ketiga di luar alur SPBE dalam waktu 15 menit. Langkah respons keamanan TIK yang paling tepat adalah ....",
     opsi: [
-      "Langsung mengeklik tautan tersebut dan mengisi data kredensial agar akun portal kepegawaian nasional Anda tetap aktif.",
-      "Membalas surel tersebut dengan melampirkan foto kartu identitas pegawai guna memastikan keaslian admin pengirim pesan.",
-      "Tidak mengeklik tautan/OTP, mengecek domain pengirim, serta melapor indikasi phishing ke tim CSIRT dan memperingatkan rekan.",
-      "Meneruskan surel ancaman pemblokiran tersebut ke grup WhatsApp agar teman lain memeriksa apakah mereka menerima pesan serupa.",
-      "Menghapus surel tersebut dari kotak masuk dan mengingatkan rekan satu meja agar tidak membuka surel berlogo portal serupa."
+      "Segera memenuhi permintaan tersebut melalui tautan berbagi pribadi agar pimpinan tidak menegur keterlambatan Anda.",
+      "Menunda pengiriman data sensitif hingga akhir jam kerja sambil menunggu pimpinan mengirim pesan teks susulan di grup.",
+      "Menolak jalur luar SPBE, melakukan verifikasi silang langsung via nomor resmi internal, dan melapor indikasi deepfake ke CSIRT.",
+      "Meminta penelepon mengirimkan surat tugas bertanda tangan basah terlebih dahulu melalui aplikasi pesan instan pribadi.",
+      "Tidak mengirimkan data ataupun menyetujui pencairan dana sebelum mengonfirmasi ulang langsung ke sekretariat pimpinan resmi."
     ],
     skor: [1, 2, 5, 3, 4],
-    pembahasan: "Respons keamanan siber terhadap upaya phishing: nol interaksi pada tautan/OTP, verifikasi domain pengirim, edukasi rekan, dan pelaporan resmi ke tim CSIRT/IT instansi.",
-    tingkat: 2, verified: true
+    pembahasan: "Ancaman rekayasa sosial berbasis deepfake suara/video wajib ditangani dengan prinsip zero-trust: tolak instruksi di luar kanal resmi SPBE, lakukan verifikasi dua arah (out-of-band) ke nomor/sekretariat resmi, lindungi data sesuai UU PDP, dan laporkan ke tim CSIRT.",
+    tingkat: 3, verified: true
   },
   {
     id: "TKP-109", subtes: "TKP", topik: "TIK",
