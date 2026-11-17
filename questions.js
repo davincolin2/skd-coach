@@ -113,11 +113,11 @@ window.QUESTION_BANK = [
     id: "TWK-007", subtes: "TWK", topik: "Integritas",
     soal: "Wakil Presiden pertama RI, Mohammad Hatta, dikenal sangat tegas memisahkan uang negara dan uang pribadi—bahkan menolak menggunakan mobil dinas untuk keperluan keluarga dan mengembalikan sisa dana operasional perjalanan dinas ke kas negara. Dalam kerangka sembilan nilai antikorupsi KPK, keteladanan Bung Hatta tersebut secara langsung mencerminkan perpaduan nilai ....",
     opsi: [
-      "Peduli dan Kompetitif",
+      "Peduli, Kompetitif, dan Pragmatis",
       "Jujur, Sederhana, dan Tanggung Jawab",
-      "Berani dan Eksklusif",
-      "Mandiri dan Pragmatis",
-      "Disiplin dan Otoriter"
+      "Berani, Eksklusif, dan Otoriter",
+      "Mandiri, Kaku, dan Individualistis",
+      "Disiplin, Transaksional, dan Taktis"
     ],
     kunci: 1,
     pembahasan: "Menolak memakai aset negara untuk kepentingan pribadi dan mengembalikan sisa anggaran mencerminkan kejujuran (Jujur), gaya hidup bersahaja/tidak aji mumpung (Sederhana), serta amanah terhadap jabatan (Tanggung Jawab) dari 9 nilai antikorupsi (JuPeMa DiTaKeSeBeA).",
@@ -300,7 +300,7 @@ window.QUESTION_BANK = [
     soal: "Pancasila disebut sebagai ideologi terbuka yang mampu bertahan menghadapi dinamika zaman, termasuk perkembangan kecerdasan buatan dan ekonomi digital. Namun, keterbukaan Pancasila memiliki batas yang tegas agar tidak kehilangan jati dirinya. Batas keterbukaan ideologi Pancasila terletak pada ....",
     opsi: [
       "larangan mutlak mengadopsi ilmu pengetahuan, teknologi digital, dan metode manajemen modern dari luar negeri",
-      "ketetapan bahwa kelima nilai dasar Pancasila bersifat tetap, sedangkan nilai instrumental dan praksis dapat dikembangkan secara kreatif",
+      "ketentuan bahwa nilai dasar Pancasila tetap, sedangkan nilai instrumental dan praksis berkembang kreatif",
       "kewajiban mengubah rumusan Pembukaan UUD 1945 setiap kali terjadi pergantian kepemimpinan pemerintahan nasional",
       "kebebasan mutlak bagi setiap pemerintah daerah untuk mengganti sistem hukum nasional dengan ideologi transnasional",
       "penyerahan tafsir resmi ideologi negara sepenuhnya kepada mekanisme pasar bebas serta tren opini global"
@@ -1259,7 +1259,7 @@ window.QUESTION_BANK = [
     opsi: [
       "Memihak salah satu rekan yang lebih dekat secara pribadi dengan Anda agar pembahasan cepat selesai.",
       "Ikut memanasi suasana perdebatan sehingga perbedaan pendapat di antara keduanya semakin memuncak.",
-      "Menengahi secara objektif berdasar target dan anggaran tim, lalu merumuskan jalan tengah dari keunggulan kedua usulan.",
+      "Menengahi secara objektif sesuai target tim, lalu merumuskan jalan tengah dari keunggulan kedua usulan.",
       "Keluar dari ruang rapat sebelum pembahasan usai karena merasa tidak nyaman mendengar perdebatan.",
       "Diam saja dan membiarkan rapat koordinasi berakhir tanpa menghasilkan keputusan operasional apa pun."
     ],
@@ -2174,17 +2174,17 @@ window.QUESTION_BANK = [
   },
   {
     id: "TIU-053", subtes: "TIU", topik: "Numerik",
-    soal: "Perbandingan Kuantitatif:\nSebuah tim verifikasi yang terdiri atas 8 orang mampu memeriksa 240 berkas dalam waktu 3 jam.\nX = Banyak berkas yang dapat diperiksa oleh 5 orang dalam waktu 4 jam dengan kecepatan kerja yang sama.\nY = 200\n\nManakah hubungan yang benar antara kuantitas X dan Y?",
+    soal: "Perhatikan diagram lingkaran alokasi anggaran pelatihan kompetensi ASN senilai total Rp240.000.000 pada gambar di atas!\nX = Selisih nilai anggaran antara pos Pelatihan Digital & SPBE dengan pos Riset & Evaluasi Kebijakan\nY = Rp45.000.000\n\nManakah hubungan yang benar antara kuantitas X dan Y?",
     opsi: [
       "X > Y",
       "X < Y",
       "X = Y",
-      "X = 1,5Y",
+      "2X = Y",
       "Hubungan X dan Y tidak dapat ditentukan"
     ],
-    kunci: 2,
-    pembahasan: "Gunakan rumus perbandingan tiga variabel (Orang × Waktu / Subjek-Output = konstan):\n(O1 × t1) / S1 = (O2 × t2) / S2\n(8 × 3) / 240 = (5 × 4) / X\n24 / 240 = 20 / X → 1 / 10 = 20 / X → X = 200 berkas.\nKarena X = 200 dan Y = 200, maka X = Y.",
-    tingkat: 2, verified: true
+    kunci: 1,
+    pembahasan: "Total persentase lingkaran adalah 100%, sehingga porsi Riset & Evaluasi Kebijakan = 100% − (35% + 25% + 22,5%) = 17,5%. Selisih persentase antara Pelatihan Digital & SPBE (35%) dan Riset & Evaluasi (17,5%) = 17,5%. Maka X = 17,5% × Rp240.000.000 = Rp42.000.000. Karena Rp42.000.000 < Rp45.000.000, maka X < Y.",
+    tingkat: 3, verified: true
   },
   {
     id: "TIU-054", subtes: "TIU", topik: "Numerik",
@@ -2374,7 +2374,7 @@ window.QUESTION_BANK = [
     id: "TIU-069", subtes: "TIU", topik: "Figural",
     soal: "Perhatikan deret serial Gambar 1 sampai Gambar 4 pada grid 3×3 di atas!\nAmati pola pergeseran petak dari lingkaran biru (●) dan tanda silang emas (✕) pada setiap langkah. Manakah Gambar 5 yang tepat?",
     opsi: [
-      "● dan ✕ bertemu tepat di petak tengah (petak 5)",
+      "● di petak 5 dan ✕ di petak 5",
       "● di petak 5 dan ✕ di petak 4",
       "● di petak 6 dan ✕ di petak 5",
       "● di petak 1 dan ✕ di petak 9",
@@ -2465,17 +2465,17 @@ window.QUESTION_BANK = [
   },
   {
     id: "TKP-050", subtes: "TKP", topik: "Pelayanan Publik",
-    soal: "Setelah selesai menerima dokumen izin yang ia urus di loket Anda, seorang pengusaha menyerahkan amplop berisi uang tunai sambil berkata, \"Ini sekadar uang kopi karena prosesnya sangat cepat dan ramah.\" Padahal layanan tersebut resmi tidak dipungut biaya (Rp0). Tindakan Anda adalah ....",
+    soal: "Saat melayani pengurusan izin usaha terpadu di Mal Pelayanan Publik (MPP), seorang pelaku UMKM mengeluhkan berkasnya tertolak sistem karena data NIK miliknya belum tersinkronisasi antara basis data kependudukan daerah dan portal perizinan pusat, padahal ia sudah dua kali bolak-balik mengurusnya dari kecamatan yang jauh. Tindakan pelayanan publik yang paling tepat Anda lakukan adalah ....",
     opsi: [
-      "Menerima amplop tersebut karena diberikan secara sukarela sebagai bentuk apresiasi setelah seluruh layanan selesai diproses.",
-      "Menolak dengan tegas namun santun, menjelaskan kewajiban pelayanan Rp0, dan mengarahkannya mengisi survei kepuasan publik.",
-      "Meminta pengusaha tersebut memasukkan uangnya ke kotak sumbangan pegawai di ruang tunggu agar tidak terlihat menerima langsung.",
-      "Mengembalikan amplop tersebut secara langsung sambil menyampaikan singkat bahwa petugas dilarang menerima imbalan apa pun.",
-      "Menerima uang tersebut untuk dibelikan makanan dan minuman bagi seluruh staf pelayanan yang bertugas di loket hari itu."
+      "Meminta pemohon menunggu di kursi ruang tunggu hingga jam istirahat berakhir agar Anda dapat menanyakan kendala server ke bagian teknologi.",
+      "Menenangkan pemohon dengan empati, memfasilitasi tiket sinkronisasi langsung ke tim admin kependudukan MPP, dan memberi kabar progres resmi.",
+      "Mengembalikan berkas permohonan dan meminta warga memperbarui data NIK secara mandiri ke dinas kependudukan pusat terlebih dahulu.",
+      "Menjelaskan penyebab kendala teknis dengan ramah serta mengarahkannya ke loket konsultasi integrasi data di MPP sembari memantau antreannya.",
+      "Memberikan lembar panduan tertulis tentang alur sinkronisasi NIK lalu menyarankan pemohon menghubungi pusat panggilan sebelum datang kembali."
     ],
-    skor: [1, 5, 2, 4, 3],
-    pembahasan: "Layanan publik ASN bebas pungli dan gratifikasi: tolak dengan santun sekaligus edukatif agar pemohon memahami hak layanan gratis dan menyalurkan apresiasi lewat survei resmi.",
-    tingkat: 1, verified: true
+    skor: [2, 5, 1, 4, 3],
+    pembahasan: "Prinsip pelayanan publik prima (service recovery & once-only principle): tunjukkan empati atas kendala sistem antarinstansi, selesaikan koordinasi integrasi data di belakang layar tanpa membebani warga bolak-balik, dan berikan kepastian tindak lanjut.",
+    tingkat: 3, verified: true
   },
   {
     id: "TKP-051", subtes: "TKP", topik: "Pelayanan Publik",
@@ -3300,17 +3300,17 @@ window.QUESTION_BANK = [
   },
   {
     id: "TWK-078", subtes: "TWK", topik: "Integritas",
-    soal: "Seorang ASN menggunakan mobil dinas berpelat merah beserta fasilitas BBM kantor untuk liburan keluarga saat cuti bersama dengan alasan kendaraan tersebut sedang tidak dipakai untuk rapat dinas. Penilaian yang paling tepat terhadap perilaku ini ditinjau dari nilai dasar integritas adalah ....",
+    soal: "Saat melakukan verifikasi lapangan calon penerima bantuan sosial berbasis Data Tunggal Sosial dan Ekonomi Nasional (DTSEN), seorang petugas ASN menemukan bahwa salah satu nama yang direkomendasikan merupakan kerabat dekat atasannya yang secara faktual memiliki usaha mapan dan aset bernilai tinggi. Atasan tersebut meminta agar berkas tetap diloloskan demi menjaga keharmonisan internal kantor. Tindakan yang paling mencerminkan integritas profesi ASN dalam kasus tersebut adalah ....",
     opsi: [
-      "Dapat dibenarkan secara etika kedinasan asalkan kendaraan dikembalikan dalam kondisi bersih, tangki terisi, serta tidak rusak",
-      "Bukan bentuk pelanggaran disiplin karena biaya pemeliharaan dan bahan bakar telah dianggarkan dalam pos operasional rutin kantor",
-      "Merupakan bentuk penyalahgunaan fasilitas dan aset negara untuk kepentingan pribadi yang mencederai integritas profesi ASN",
-      "Merupakan kelonggaran fasilitas yang sah khusus bagi pejabat struktural senior yang memiliki masa pengabdian di atas sepuluh tahun",
-      "Termasuk hak kesejahteraan yang melekat secara otomatis bagi setiap pegawai negeri ketika menjalani masa cuti bersama nasional"
+      "meloloskan berkas tersebut sebagai bentuk loyalitas kepada pimpinan sambil mencatat keberatan secara lisan di buku harian pribadi",
+      "menolak intervensi tersebut secara santun, mencatat hasil verifikasi objektif sesuai fakta lapangan, dan melaporkannya lewat sistem resmi",
+      "mengalihkan tugas verifikasi alamat tersebut kepada petugas junior lain agar tidak berhadapan langsung dengan kepentingan pimpinan unit",
+      "meminta kerabat atasan tersebut menandatangani surat pernyataan tidak mampu sementara agar dokumen administrasi terlihat memenuhi syarat",
+      "menunda penginputan data verifikasi hingga masa penyaluran bantuan berakhir supaya nama kerabat atasan gugur secara otomatis oleh sistem"
     ],
-    kunci: 2,
-    pembahasan: "Kendaraan dinas dan BBM operasional adalah barang milik negara yang dibiayai uang rakyat dan diperuntukkan khusus bagi pelaksanaan tugas kedinasan. Memakainya untuk keperluan pribadi merupakan bentuk penyalahgunaan wewenang dan ketidakjujuran penggunaan aset publik.",
-    tingkat: 1, verified: true
+    kunci: 1,
+    pembahasan: "Integritas ASN menuntut keberanian moral (berani), kejujuran berbasis bukti (jujur), dan keadilan publik (adil) di atas loyalitas personal. Meloloskan keluarga pejabat yang tidak memenuhi kriteria atau merekayasa administrasi merugikan warga miskin yang berhak serta melanggar nilai dasar Akuntabel dan sistem pengawasan internal (WBS).",
+    tingkat: 3, verified: true
   },
   {
     id: "TWK-079", subtes: "TWK", topik: "Integritas",

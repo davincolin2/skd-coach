@@ -66,6 +66,7 @@ window.MATERI = {
         { k: 'Sikap Sosial', v: 'Peduli, Berani, Adil (berani menolak & melaporkan kecurangan)' },
         { k: 'Batas Gratifikasi', v: 'Wajib lapor ke KPK maksimal 30 hari kerja sejak diterima' },
         { k: 'Anti Split-Contract', v: 'Dilarang memecah paket pengadaan E-Katalog untuk menghindari tender terbuka' },
+        { k: 'Anti-Intervensi Data', v: 'Verifikasi DTSEN/bansos wajib objektif sesuai fakta lapangan walau ada tekanan kerabat atasan' },
         { k: 'ASN BerAKHLAK', v: 'Berorientasi Pelayanan, Akuntabel, Kompeten, Harmonis, Loyal, Adaptif, Kolaboratif' }
       ],
       inti: [
@@ -285,6 +286,7 @@ window.MATERI = {
       jembatan: 'Rumus Skor 5 Pelayanan: Empati/Senyum + Jelaskan Prosedur dengan Santun + Berikan Solusi Nyata Sesuai SOP (Tanpa KKN/Jalan Pintas).',
       peta: [
         { k: 'Skor 5 (Terbaik)', v: 'Mendengarkan keluhan dengan tenang/empati, meminta maaf atas ketidaknyamanan, menjelaskan SOP, & memberi solusi tuntas' },
+        { k: 'Once-Only Principle', v: 'Jika data lintas unit (NIK/perizinan MPP) belum sinkron, koordinasikan di internal agar warga tidak bolak-balik' },
         { k: 'Skor 1-2 (Hindari)', v: 'Terpancing emosi, melempar ke rekan lain tanpa membantu, atau melanggar SOP demi rasa kasihan' },
         { k: 'Kelompok Rentan', v: 'Prioritaskan lansia, ibu hamil, dan penyandang disabilitas melalui jalur/fasilitas layanan khusus yang resmi' }
       ],
