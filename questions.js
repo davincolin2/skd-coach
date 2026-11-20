@@ -1,21 +1,21 @@
 /* =====================================================================
-   BANK SOAL SKD COACH — EDISI PRESISI KISI-KISI & PROPORSI CAT BKN 2026
+   BANK SOAL SKD COACH — EDISI PRESISI KISI-KISI & PROPORSI CAT BKN 2026/2027
    ---------------------------------------------------------------------
-   Total: 330 Soal Orisinal HOTS (3× Paket Penuh Resmi SKD CPNS:
-   90 TWK [27,3%] | 105 TIU [31,8%] | 135 TKP [40,9%])
+   Total: 352 Soal Orisinal HOTS (3,2× Paket Penuh Resmi SKD CPNS:
+   96 TWK [27,3%] | 112 TIU [31,8%] | 144 TKP [40,9%])
 
-   Sebaran Probabilitas Subtopik per Paket (KepmenPANRB No. 321/2024 & Pola CAT):
-   - TWK (30×3 = 90):  Pilar Negara (24), Nasionalisme (18), Integritas (18),
-                       Bela Negara (15), Bahasa Indonesia (15).
-   - TIU (35×3 = 105): Numerik (45: Deret, Aljabar, Grafik/Tabel BPS, Kuantitatif X vs Y, Cerita),
-                       Logika (24: Silogisme, Negasi Implikasi, Analitis Posisi/Jadwal/Rute),
-                       Verbal (21: Analogi Bertingkat, Analogi Setara, Penalaran Wacana),
-                       Figural (15: Analogi, Kiralitas, Serial Matriks, XOR Kuadran, Pencerminan).
-   - TKP (45×3 = 135): Pelayanan Publik (24), Profesionalisme (24), TIK (24),
-                       Jejaring Kerja (21), Sosial Budaya (21), Anti-Radikalisme (21).
+   Sebaran Probabilitas Subtopik (KepmenPANRB No. 321/2024 & Daily Engine 2026/2027):
+   - TWK (96):  Pilar Negara (26), Nasionalisme (19), Integritas (19),
+                Bela Negara (16), Bahasa Indonesia (16).
+   - TIU (112): Numerik (48: Deret, Aljabar, Grafik/Tabel/Diagram Lingkaran, Kuantitatif X vs Y, Cerita),
+                Logika (26: Silogisme, Negasi Implikasi, Analitis Posisi/Jadwal/Rute),
+                Verbal (22: Analogi Bertingkat, Analogi Setara, Penalaran Wacana),
+                Figural (16: Analogi, Kiralitas, Serial Matriks, XOR Kuadran, Pencerminan).
+   - TKP (144): Pelayanan Publik (26), Profesionalisme (26), TIK (26),
+                Jejaring Kerja (22), Sosial Budaya (22), Anti-Radikalisme (22).
 
    Semua soal ditulis ORISINAL untuk latihan penalaran dan telah melalui
-   audit konsistensi internal (verified: true).
+   audit konsistensi berlapis (verified: true).
    ===================================================================== */
 window.QUESTION_BANK = [
   /* ===================================================================
@@ -4511,5 +4511,306 @@ window.QUESTION_BANK = [
     skor: [2, 3, 5, 4, 1],
     pembahasan: "Aset negara tidak boleh difasilitasi untuk menyemai kebencian SARA dan disintegrasi bangsa. Penolakan berbasis regulasi secara transparan adalah langkah pencegahan radikalisme yang akuntabel.",
     tingkat: 2, verified: true
+  },
+
+  /* ===================================================================
+     PAKET 4 (DAILY ENGINE BATCH 2026-11-20) — +22 SOAL HOTS PREDIKSI 2026/2027
+     Proporsi Presisi CAT BKN: 6 TWK : 7 TIU : 9 TKP (= 30 : 35 : 45)
+     =================================================================== */
+  {
+    id: "TWK-091", subtes: "TWK", topik: "Pilar Negara", era: "prediksi2027", dibuat: "2026-11-20", tipe: "Hukum & Konstitusi",
+    soal: "Sejak berlakunya KUHP Nasional (UU No. 1 Tahun 2023) beserta UU Penyesuaian Pidana (UU No. 1 Tahun 2026), aparat penegak hukum mengedepankan mekanisme keadilan restoratif pada tindak pidana ringan tertentu dengan syarat adanya pemulihan kerugian korban dan kesepakatan para pihak tanpa mengabaikan ketertiban umum. Ditinjau dari Pasal 1 ayat (3) dan Pasal 28D ayat (1) UUD NRI 1945, kebijakan pembaruan hukum pidana tersebut bertujuan untuk ....",
+    opsi: [
+      "menggantikan seluruh kewenangan peradilan pidana dengan musyawarah kekeluargaan agar lembaga pemasyarakatan dapat ditutup secara bertahap",
+      "mewujudkan kepastian hukum yang adil dan kemanfaatan sosial dengan menyeimbangkan perlindungan hak korban serta pembinaan pelaku secara proporsional",
+      "memberikan kekebalan hukum bagi pelaku tindak pidana yang sanggup membayar ganti rugi finansial dalam jumlah besar kepada kas pemerintah daerah",
+      "menghapus fungsi pengawasan hakim dan jaksa dalam proses penyelesaian perkara pidana agar aparat kepolisian memiliki diskresi mutlak di lapangan",
+      "menyeragamkan seluruh sanksi hukum adat di berbagai daerah menjadi denda administratif tunggal yang dikelola langsung oleh kementerian hukum"
+    ],
+    kunci: 1,
+    pembahasan: "Reformasi hukum pidana nasional efektif 2026 (UU 1/2023 & UU 1/2026) menjabarkan prinsip Negara Hukum (Pasal 1 ayat 3) dan hak atas kepastian hukum yang adil (Pasal 28D ayat 1 UUD NRI 1945): keadilan tidak berhenti pada penghukuman retributif, melainkan memulihkan luka sosial, hak korban, dan reintegrasi pelaku secara terukur.",
+    tingkat: 3, verified: true
+  },
+  {
+    id: "TWK-092", subtes: "TWK", topik: "Pilar Negara", era: "prediksi2027", dibuat: "2026-11-20", tipe: "Ketatanegaraan",
+    soal: "Dalam pembahasan Rancangan Undang-Undang yang mengatur perimbangan keuangan antara pemerintah pusat dan daerah serta pengelolaan sumber daya alam, Dewan Perwakilan Daerah (DPD) menyampaikan rancangan dan pertimbangan resmi kepada DPR. Berdasarkan Pasal 22D UUD NRI 1945, batas kewenangan konstitusional DPD dalam proses pembentukan undang-undang tersebut adalah ....",
+    opsi: [
+      "mengajukan RUU dan ikut membahasnya bersama DPR dan Presiden, namun tidak memiliki kewenangan mengesahkan RUU menjadi undang-undang secara sepihak",
+      "memiliki hak veto untuk membatalkan RUU perimbangan keuangan apabila ditolak oleh lebih dari separuh gubernur di wilayah Indonesia Timur",
+      "mengambil alih fungsi persetujuan akhir RUU bidang otonomi daerah dari DPR apabila pembahasan melampaui batas waktu dua masa persidangan",
+      "menguji konstitusionalitas undang-undang hasil pembahasan DPR secara langsung sebelum diundangkan dalam Lembaran Negara oleh Sekretaris Negara",
+      "menetapkan besaran dana bagi hasil sumber daya alam tiap provinsi melalui ketetapan DPD yang berkekuatan hukum setara dengan undang-undang"
+    ],
+    kunci: 0,
+    pembahasan: "Berdasarkan Pasal 22D ayat (1) dan (2) UUD NRI 1945 (serta Putusan MK No. 92/PUU-X/2012), DPD berwenang mengajukan RUU dan ikut membahas RUU terkait otonomi daerah, hubungan pusat-daerah, sumber daya alam, serta perimbangan keuangan, tetapi persetujuan bersama pengesahan UU tetap berada pada DPR dan Presiden (Pasal 20).",
+    tingkat: 3, verified: true
+  },
+  {
+    id: "TWK-093", subtes: "TWK", topik: "Integritas", era: "prediksi2027", dibuat: "2026-11-20", tipe: "Akuntabilitas & LHKPN",
+    soal: "Seorang pejabat struktural yang membidangi perizinan investasi daerah sengaja menyembunyikan kepemilikan aset digital dan saham tidak langsung pada perusahaan mitra di dalam Laporan Harta Kekayaan Penyelenggara Negara (LHKPN) dengan mengatasnamakan kerabatnya. Ditinjau dari UU No. 28 Tahun 1999 dan nilai dasar ASN BerAKHLAK, pelanggaran prinsipal dari perbuatan tersebut adalah ....",
+    opsi: [
+      "menghindari potensi pajak penghasilan pribadi semata tanpa memengaruhi kualitas keputusan perizinan investasi di unit kerjanya",
+      "mencederai asas keterbukaan dan akuntabilitas publik serta menyembunyikan potensi benturan kepentingan dalam penyelenggaraan negara",
+      "melanggar aturan kerahasiaan perbankan nasional karena mencampuradukkan portofolio investasi digital dengan rekening gaji pegawai",
+      "mengurangi efisiensi waktu verifikasi administrasi di Komisi Pemberantasan Korupsi akibat penggunaan instrumen investasi modern",
+      "menyalahi prosedur pelaporan tahunan karena aset digital belum memiliki nilai tukar tetap terhadap mata uang rupiah di akhir tahun"
+    ],
+    kunci: 1,
+    pembahasan: "Kewajiban LHKPN dalam UU No. 28 Tahun 1999 merupakan instrumen transparansi, akuntabilitas, dan deteksi dini ketidakwajaran harta maupun benturan kepentingan (conflict of interest). Menyembunyikan beneficial ownership atas saham rekanan melanggar nilai Jujur dan Akuntabel.",
+    tingkat: 3, verified: true
+  },
+  {
+    id: "TWK-094", subtes: "TWK", topik: "Nasionalisme", era: "prediksi2027", dibuat: "2026-11-20", tipe: "Kedaulatan Ekonomi",
+    soal: "Kebijakan hilirisasi mineral kritis dan pengembangan ekosistem industri baterai di dalam negeri terus diperkuat pemerintah meskipun menghadapi gugatan dagang dari sejumlah negara industri maju. Dalam perspektif nasionalisme ekonomi yang berlandaskan Pasal 33 UUD NRI 1945, langkah strategis tersebut mencerminkan ....",
+    opsi: [
+      "penutupan diri secara permanen dari seluruh bentuk perdagangan internasional dan investasi asing di sektor manufaktur nasional",
+      "kedaulatan bangsa untuk mengelola kekayaan alam agar memberi nilai tambah, lapangan kerja, dan kemakmuran sebesar-besarnya bagi rakyat",
+      "pengalihan seluruh aset perusahaan tambang swasta nasional menjadi milik koperasi daerah tanpa melalui mekanisme kompensasi hukum",
+      "ketergantungan penuh industri pengolahan nasional pada pasokan bahan baku impor dari negara-negara mitra strategis di kawasan Asia",
+      "penghapusan kewajiban reklamasi lingkungan hidup bagi kawasan industri pengolahan mineral demi mengejar pertumbuhan ekspor jangka pendek"
+    ],
+    kunci: 1,
+    pembahasan: "Nasionalisme ekonomi sesuai Pasal 33 ayat (3) dan (4) UUD NRI 1945 menuntut kemandirian dan kedaulatan pengelolaan sumber daya strategis melalui peningkatan nilai tambah di dalam negeri demi sebesar-besar kemakmuran rakyat, bukan sekadar mengekspor bahan mentah.",
+    tingkat: 2, verified: true
+  },
+  {
+    id: "TWK-095", subtes: "TWK", topik: "Bela Negara", era: "prediksi2027", dibuat: "2026-11-20", tipe: "Pertahanan Siber & IIVN",
+    soal: "Serangan siber terkoordinasi terhadap Pusat Data dan Infrastruktur Informasi Vital Nasional (IIVN) berpotensi melumpuhkan layanan kesehatan, transportasi, dan administrasi kependudukan secara serentak. Dalam kerangka sistem pertahanan negara nonmiliter (UU No. 3 Tahun 2002 dan Perpres Pelindungan IIVN), wujud bela negara yang wajib dijalankan oleh aparatur pengelola sistem informasi adalah ....",
+    opsi: [
+      "melakukan serangan balasan secara mandiri ke peladen luar negeri yang diduga menjadi sumber peretasan tanpa menunggu komando BSSN",
+      "mematikan seluruh layanan publik digital secara permanen dan mengembalikan pengarsipan nasional ke sistem pembukuan kertas manual",
+      "menerapkan standar pengamanan siber berlapis, melakukan audit kerentanan berkala, dan bersinergi cepat dengan tim CSIRT serta BSSN",
+      "menyerahkan pengelolaan penuh pusat data kependudukan strategis kepada perusahaan penyedia komputasi awan asing di luar yurisdiksi RI",
+      "menyembunyikan insiden kebocoran data dari pimpinan serta publik agar reputasi kinerja transformasi digital instansi tetap terjaga baik"
+    ],
+    kunci: 2,
+    pembahasan: "Pelindungan Infrastruktur Informasi Vital Nasional (IIVN) merupakan bagian krusial dari pertahanan nir-militer di ruang siber. Bela negara profesi ASN diwujudkan lewat disiplin keamanan siber, kepatuhan standar BSSN/UU PDP, dan koordinasi tanggap insiden bersama CSIRT.",
+    tingkat: 3, verified: true
+  },
+  {
+    id: "TWK-096", subtes: "TWK", topik: "Bahasa Indonesia", era: "prediksi2027", dibuat: "2026-11-20", tipe: "EYD V & TNDE",
+    soal: "Perhatikan lima kalimat dalam draf surat edaran resmi berikut!\nManakah kalimat yang seluruhnya menggunakan kata baku sesuai KBBI VI dan kaidah Ejaan Bahasa Indonesia yang Disempurnakan (EYD) Edisi V?",
+    opsi: [
+      "Para pemohon diwajibkan melampirkan fotocopy akte kelahiran yang telah dilegalisir oleh pejabat berwenang.",
+      "Jadual verifikasi faktual telah dirubah oleh panitia pusat guna mengantisipasi lonjakan antrian peserta.",
+      "Seluruh aparatur wajib memutakhirkan data autentik pada sistem elektronik sebelum batas akhir pendaftaran.",
+      "Analisa resiko anggaran tersebut harus ditanda tangani oleh kepala biro keuangan paling lambat hari Jum'at.",
+      "Tim tehnis sedang mengkoordinir standarisasi pelayanan terpadu di dua puluh propinsi secara bertahap."
+    ],
+    kunci: 2,
+    pembahasan: "Kalimat C seluruhnya baku: 'memutakhirkan', 'autentik', 'sistem', 'elektronik'. Kesalahan opsi lain: A (fotocopy -> fotokopi, akte -> akta, dilegalisir -> dilegalisasi); B (jadual -> jadwal, dirubah -> diubah, antrian -> antrean); D (analisa -> analisis, resiko -> risiko, ditanda tangani -> ditandatangani, Jum'at -> Jumat); E (tehnis -> teknis, mengkoordinir -> mengoordinasikan, standarisasi -> standardisasi, propinsi -> provinsi).",
+    tingkat: 2, verified: true
+  },
+  {
+    id: "TIU-106", subtes: "TIU", topik: "Numerik", era: "prediksi2027", dibuat: "2026-11-20", tipe: "Deret Dua Larik",
+    soal: "Perhatikan deret angka dua larik berikut:\n3, 4, 6, 8, 9, 16, 12, 32, ...., ....\nDua angka yang paling tepat untuk melanjutkan deret di atas berturut-turut adalah ....",
+    opsi: ["14 dan 48", "15 dan 48", "15 dan 64", "16 dan 64", "18 dan 64"],
+    kunci: 2,
+    pembahasan: "Pisahkan menjadi dua larik berselang-seling:\n• Larik ganjil (U1, U3, U5, U7, U9): 3, 6, 9, 12, ... (pola +3) → suku ke-9 = 12 + 3 = 15.\n• Larik genap (U2, U4, U6, U8, U10): 4, 8, 16, 32, ... (pola ×2) → suku ke-10 = 32 × 2 = 64.\nJadi dua suku berikutnya adalah 15 dan 64.",
+    tingkat: 3, verified: true
+  },
+  {
+    id: "TIU-107", subtes: "TIU", topik: "Numerik", era: "prediksi2027", dibuat: "2026-11-20", tipe: "Tabel & Grafik",
+    soal: "Perhatikan grafik batang dan tabel Pagu vs Realisasi Anggaran Transformasi Digital pada 4 Direktorat tahun 2026 di atas!\nDirektorat manakah yang mencatat persentase serapan anggaran TERTINGGI terhadap pagunya, dan berapa persen capaiannya?",
+    opsi: [
+      "Direktorat A (85,0%)",
+      "Direktorat B (87,5%)",
+      "Direktorat C (90,0%)",
+      "Direktorat D (86,0%)",
+      "Direktorat D (92,0%)"
+    ],
+    kunci: 2,
+    pembahasan: "Hitung rasio Realisasi ÷ Pagu × 100% tiap direktorat:\n• Direktorat A: 68 / 80 × 100% = 17/20 × 100% = 85,0%\n• Direktorat B: 105 / 120 × 100% = 7/8 × 100% = 87,5%\n• Direktorat C: 54 / 60 × 100% = 9/10 × 100% = 90,0%\n• Direktorat D: 129 / 150 × 100% = 43/50 × 100% = 86,0%\nMeskipun realisasi nominal Direktorat D paling besar (Rp129 M), persentase serapan tertinggi dicapai oleh Direktorat C (90,0%).",
+    tingkat: 3, verified: true
+  },
+  {
+    id: "TIU-108", subtes: "TIU", topik: "Numerik", era: "prediksi2027", dibuat: "2026-11-20", tipe: "Kuantitatif Geometri",
+    soal: "Perhatikan sketsa denah Plaza Layanan Terpadu yang berbentuk gabungan persegi panjang (panjang 20 m, lebar 14 m) dan setengah lingkaran (diameter 14 m, π = 22/7) pada gambar di atas!\nX = Luas total seluruh permukaan Plaza Layanan Terpadu tersebut (dalam m²)\nY = 355 m²\n\nManakah hubungan kuantitatif yang tepat antara X dan Y?",
+    opsi: [
+      "X > Y",
+      "X < Y",
+      "X = Y",
+      "X + Y = 700 m²",
+      "Hubungan X dan Y tidak dapat ditentukan"
+    ],
+    kunci: 0,
+    pembahasan: "1) Luas bagian persegi panjang = p × l = 20 × 14 = 280 m².\n2) Bagian setengah lingkaran memiliki diameter d = 14 m (jari-jari r = 7 m), sehingga luasnya = 1/2 × π × r² = 1/2 × (22/7) × 7 × 7 = 77 m².\n3) Luas total X = 280 + 77 = 357 m².\nKarena 357 m² > 355 m², maka X > Y.",
+    tingkat: 3, verified: true
+  },
+  {
+    id: "TIU-109", subtes: "TIU", topik: "Logika", era: "prediksi2027", dibuat: "2026-11-20", tipe: "Silogisme & Modus Tollens",
+    soal: "Premis 1: Jika aplikasi layanan publik lulus uji penetrasi siber BSSN, maka aplikasi tersebut memperoleh Sertifikat Laik Operasi.\nPremis 2: Jika aplikasi layanan publik memperoleh Sertifikat Laik Operasi, maka aplikasi tersebut diintegrasikan ke Portal Nasional INA Digital.\nPremis 3: Aplikasi perizinan Daerah X tidak diintegrasikan ke Portal Nasional INA Digital.\n\nSimpulan yang PASTI BENAR berdasarkan ketiga premis tersebut adalah ....",
+    opsi: [
+      "Aplikasi perizinan Daerah X sudah memperoleh Sertifikat Laik Operasi tetapi ditunda peluncurannya.",
+      "Aplikasi perizinan Daerah X tidak lulus uji penetrasi siber BSSN yang dipersyaratkan secara resmi.",
+      "Sebagian aplikasi perizinan di Daerah X tetap diintegrasikan ke Portal Nasional tanpa uji siber.",
+      "Uji penetrasi siber BSSN hanya diberlakukan bagi aplikasi layanan publik tingkat kementerian pusat.",
+      "Portal Nasional INA Digital sedang mengalami pemeliharaan jaringan sehingga integrasi daerah gagal."
+    ],
+    kunci: 1,
+    pembahasan: "Dari Premis 1 (P ⇒ Q) dan Premis 2 (Q ⇒ R) diperoleh silogisme hipotesis P ⇒ R (Jika lulus uji penetrasi siber BSSN, maka diintegrasikan ke Portal Nasional INA Digital). Premis 3 menyatakan ~R (tidak diintegrasikan). Berdasarkan Modus Tollens, kesimpulan yang sah adalah ~P: Aplikasi perizinan Daerah X tidak lulus uji penetrasi siber BSSN.",
+    tingkat: 3, verified: true
+  },
+  {
+    id: "TIU-110", subtes: "TIU", topik: "Logika", era: "prediksi2027", dibuat: "2026-11-20", tipe: "Penalaran Analitis Jadwal",
+    soal: "Panitia seleksi menjadwalkan ujian SKD CAT untuk enam kelompok instansi (P, Q, R, S, T, dan U) pada enam sesi berurutan dari Sesi 1 hingga Sesi 6 (satu instansi per sesi) dengan ketentuan:\n• Instansi R dijadwalkan tepat pada Sesi 4.\n• Instansi P diuji tepat satu sesi sebelum Instansi Q (P → Q), dan keduanya dilaksanakan sebelum Sesi 4.\n• Instansi T diuji pada sesi lebih awal daripada Instansi P.\n• Instansi S tidak diuji pada Sesi 6.\n\nInstansi yang PASTI mengikuti ujian pada Sesi 5 adalah ....",
+    opsi: ["Instansi P", "Instansi Q", "Instansi T", "Instansi S", "Instansi U"],
+    kunci: 3,
+    pembahasan: "Susun 6 slot sesi (1 s/d 6):\n1) Sesi 4 = R.\n2) P dan Q berurutan (P → Q) di bawah Sesi 4, sedangkan T < P. Maka tiga slot awal (Sesi 1, 2, 3) pasti terisi: Sesi 1 = T, Sesi 2 = P, Sesi 3 = Q.\n3) Tersisa Sesi 5 dan Sesi 6 untuk S dan U. Karena S tidak diuji pada Sesi 6, maka Sesi 5 = S dan Sesi 6 = U.",
+    tingkat: 3, verified: true
+  },
+  {
+    id: "TIU-111", subtes: "TIU", topik: "Verbal", era: "prediksi2027", dibuat: "2026-11-20", tipe: "Penalaran Wacana Kritis",
+    soal: "Bacalah kutipan laporan kebijakan berikut!\n\"Kementerian Dalam Negeri mempercepat integrasi Identitas Kependudukan Digital (IKD) dengan sistem penyaluran bantuan sosial di seluruh kabupaten/kota. Dalam uji coba di 40 daerah, verifikasi biometrik IKD berhasil memangkas duplikasi data penerima hingga 92% dan mempercepat pencairan bantuan rata-rata 6 hari lebih awal dibandingkan verifikasi kartu fisik manual.\"\n\nSimpulan yang PALING DIDUKUNG oleh fakta dalam wacana di atas adalah ....",
+    opsi: [
+      "Verifikasi biometrik IKD di daerah uji coba terbukti menekan duplikasi data sekaligus mempercepat pencairan bantuan.",
+      "Seluruh kabupaten/kota di Indonesia telah menghapus penggunaan KTP elektronik fisik secara permanen sejak awal tahun.",
+      "Pencairan bantuan sosial melalui kartu fisik manual di luar daerah uji coba selalu mengalami keterlambatan satu bulan.",
+      "Duplikasi data penerima bantuan sosial hanya disebabkan oleh kelalaian petugas kelurahan dalam mencatat nomor dokumen.",
+      "Integrasi IKD menjamin total anggaran bantuan sosial nasional turun drastis hingga lebih dari sembilan puluh persen."
+    ],
+    kunci: 0,
+    pembahasan: "Simpulan yang sah wajib bertumpu ketat pada fakta eksplisit teks: pada 40 daerah uji coba, verifikasi biometrik IKD menurunkan duplikasi data penerima (92%) dan mempercepat waktu pencairan bantuan (6 hari lebih awal). Opsi B, C, D, dan E melakukan generalisasi ekstrem di luar bukti wacana.",
+    tingkat: 3, verified: true
+  },
+  {
+    id: "TIU-112", subtes: "TIU", topik: "Figural", era: "prediksi2027", dibuat: "2026-11-20", tipe: "Deret Serial Multi-Atribut",
+    soal: "Perhatikan deret serial Gambar 1 sampai Gambar 4 di atas!\nPada setiap langkah, jarum penunjuk berputar 90° berlawanan arah jarum jam (CCW), warna lingkaran tengah berganti (Putih ↔ Hitam), dan jumlah garis indikator bawah mengikuti siklus (1 → 2 → 3 → 1 → ...). Manakah Gambar 5 yang tepat?",
+    opsi: [
+      "Panah ke ATAS · pusat Hitam · 2 garis",
+      "Panah ke KIRI · pusat Putih · 2 garis",
+      "Panah ke ATAS · pusat Putih · 2 garis",
+      "Panah ke ATAS · pusat Putih · 3 garis",
+      "Panah ke BAWAH · pusat Hitam · 2 garis"
+    ],
+    kunci: 2,
+    pembahasan: "Lacak ketiga atribut secara terpisah:\n1) Arah panah (90° CCW): Atas (0°) → Kiri (270°) → Bawah (180°) → Kanan (90°) → kembali ke ATAS (0°).\n2) Warna lingkaran pusat: Putih → Hitam → Putih → Hitam → PUTIH.\n3) Garis indikator bawah: 1 → 2 → 3 → 1 → 2 garis.\nKombinasi Gambar 5 yang tepat: Panah ke ATAS · pusat Putih · 2 garis.",
+    tingkat: 3, verified: true
+  },
+  {
+    id: "TKP-136", subtes: "TKP", topik: "Pelayanan Publik", era: "prediksi2027", dibuat: "2026-11-20", tipe: "Inklusivitas & Layanan Hibrida",
+    soal: "Kantor pelayanan tempat Anda bertugas baru menerapkan kebijakan tanpa kertas (paperless) yang mewajibkan pemohon mengunggah dokumen lewat aplikasi gawai. Suatu siang, seorang warga lansia dari desa terpencil datang membawa berkas fisik lengkap tetapi tidak memiliki ponsel pintar dan tampak kebingungan di depan mesin antrean. Tindakan Anda adalah ....",
+    opsi: [
+      "Menolak berkas fisik tersebut secara tegas karena aturan kantor sudah mewajibkan seluruh permohonan masuk melalui aplikasi digital.",
+      "Menyapanya dengan ramah, membantu memindaikan dan mengunggah berkasnya lewat perangkat layanan pendampingan, hingga nomor registrasi terbit.",
+      "Menyarankan warga lansia tersebut pulang terlebih dahulu untuk meminta bantuan kerabatnya yang memiliki ponsel pintar di rumah.",
+      "Mengambil alih berkas fisik tersebut untuk diproses secara manual di luar sistem elektronik agar warga tidak perlu terdaftar di aplikasi.",
+      "Mengarahkan warga tersebut ke meja petugas keamanan sembari memberikan brosur panduan cara mengunduh aplikasi layanan di ponsel."
+    ],
+    skor: [1, 5, 2, 3, 4],
+    pembahasan: "Transformasi layanan digital wajib tetap inklusif bagi kelompok rentan (lansia, disabilitas, masyarakat 3T) sesuai UU No. 25/2009: sediakan pendampingan aktif (assisted digital service) sehingga data tetap tercatat di sistem elektronik tanpa menelantarkan warga.",
+    tingkat: 3, verified: true
+  },
+  {
+    id: "TKP-137", subtes: "TKP", topik: "Pelayanan Publik", era: "prediksi2027", dibuat: "2026-11-20", tipe: "Service Recovery Digital",
+    soal: "Sebuah utas keluhan warga viral di media sosial karena sistem pembayaran retribusi daring instansi Anda melakukan pendebitan ganda pada rekening beberapa pemohon akibat gangguan jaringan semalam. Sebagai pejabat pengelola layanan informasi dan pengaduan, langkah paling efektif yang Anda tempuh adalah ....",
+    opsi: [
+      "Meminta bagian humas menutup kolom komentar akun resmi instansi agar keluhan warga tidak semakin memicu kehebohan publik.",
+      "Menyampaikan permohonan maaf resmi, membuka posko verifikasi pengembalian dana otomatis bersama bank mitra, dan mempublikasikan progresnya.",
+      "Menyalahkan pihak bank penyedia gerbang pembayaran secara terbuka di media sosial karena gangguan terjadi pada jaringan perbankan.",
+      "Menunggu para pemohon yang terdampak datang melapor satu per satu ke loket kantor dengan membawa bukti cetak rekening koran.",
+      "Menjawab setiap komentar warga dengan meminta mereka bersabar hingga proses rekonsiliasi keuangan akhir bulan selesai dilakukan."
+    ],
+    skor: [1, 5, 2, 3, 4],
+    pembahasan: "Service recovery yang akuntabel di era digital menuntut respons cepat, empati terbuka (permohonan maaf), kolaborasi teknis penyelesaian akar masalah (refund terverifikasi bersama bank mitra), serta transparansi status penanganan kepada publik.",
+    tingkat: 3, verified: true
+  },
+  {
+    id: "TKP-138", subtes: "TKP", topik: "Profesionalisme", era: "prediksi2027", dibuat: "2026-11-20", tipe: "Integritas Data Kinerja",
+    soal: "Menjelang penilaian akhir Zona Integritas menuju Wilayah Bebas dari Korupsi (WBK), atasan meminta Anda menaikkan angka indeks kepuasan masyarakat dan capaian waktu layanan pada draf laporan SAKIP sebesar 15% dari data riil agar unit kerja pasti lolos evaluasi kementerian. Sikap profesional Anda adalah ....",
+    opsi: [
+      "Memenuhi permintaan atasan demi menjaga nama baik unit kerja dan peluang memperoleh insentif kinerja bagi seluruh pegawai.",
+      "Menolak memanipulasi angka, menyajikan data riil beserta analisis akar masalah dan rencana aksi perbaikan konkret kepada atasan.",
+      "Menaikkan angka capaian sebesar 5% saja sebagai jalan tengah agar laporan tetap terlihat meningkat tanpa terlalu mencolok.",
+      "Meminta rekan lain yang menandatangani berita acara pengolahan data tersebut agar Anda terhindar dari tanggung jawab audit.",
+      "Mengosongkan bagian tabel capaian yang belum memenuhi target supaya tim penilai tidak melihat adanya penurunan performa unit."
+    ],
+    skor: [1, 5, 2, 3, 4],
+    pembahasan: "Profesionalisme dan akuntabilitas kinerja (SAKIP/Zona Integritas) menuntut kejujuran data berbasis bukti (evidence-based). Manipulasi capaian justru mencederai esensi WBK; solusi profesional adalah menyajikan data objektif disertai rencana tindak korektif.",
+    tingkat: 3, verified: true
+  },
+  {
+    id: "TKP-139", subtes: "TKP", topik: "Profesionalisme", era: "prediksi2027", dibuat: "2026-11-20", tipe: "Manajemen Prioritas",
+    soal: "Saat Anda sedang menyelesaikan revisi akhir dokumen Rencana Kerja dan Anggaran (RKA) yang wajib diunggah ke sistem pusat pukul 16.00 hari ini, seorang kepala bidang lain meminta bantuan Anda membuatkan paparan rapat untuk kegiatan minggu depan. Tindakan yang paling profesional adalah ....",
+    opsi: [
+      "Langsung meninggalkan pengerjaan RKA demi membantu kepala bidang tersebut karena segan menolak permintaan pejabat struktural.",
+      "Menolak dengan ketus dan mengatakan bahwa Anda bukan staf di bawah bidangnya sehingga tidak wajib membantu pembuatan paparan.",
+      "Menjelaskan secara santun tenggat mutlak RKA pukul 16.00, lalu menawarkan bantuan menyusun paparan setelah RKA selesai diunggah.",
+      "Mengerjakan kedua tugas tersebut secara bersamaan dengan tergesa-gesa meskipun berisiko menimbulkan kesalahan hitung pada dokumen RKA.",
+      "Menerima permintaan tersebut namun diam-diam mendelegasikannya kepada staf magang tanpa memeriksa kembali hasilnya."
+    ],
+    skor: [2, 1, 5, 3, 4],
+    pembahasan: "Manajemen prioritas profesional menggunakan matriks urgensi-kepentingan: amankan tugas krusial bertenggat mutlak hari ini (RKA pukul 16.00) sambil tetap menjaga komunikasi kolaboratif yang santun untuk menjadwalkan tugas minggu depan.",
+    tingkat: 2, verified: true
+  },
+  {
+    id: "TKP-140", subtes: "TKP", topik: "TIK", era: "prediksi2027", dibuat: "2026-11-20", tipe: "Keamanan Siber & SSO",
+    soal: "Anda menerima notifikasi peringatan dari sistem keamanan bahwa akun Single Sign-On (SSO) kedinasan Anda baru saja diakses dari perangkat dan lokasi asing beberapa menit setelah Anda tidak sengaja mengunduh lampiran mencurigakan di komputer kerja. Langkah darurat TIK yang paling tepat adalah ....",
+    opsi: [
+      "Membiarkan notifikasi tersebut karena mengira sistem keamanan sedang melakukan pemindaian otomatis rutin pada akun pegawai.",
+      "Memutus koneksi jaringan komputer, mencabut sesi aktif dan mengganti sandi/MFA dari perangkat aman, lalu segera melapor ke tim CSIRT.",
+      "Mematikan layar monitor komputer dan menunggu hingga keesokan pagi untuk menanyakan hal tersebut kepada rekan satu ruangan.",
+      "Menghapus riwayat peramban internet di komputer kerja agar aktivitas pengunduhan berkas mencurigakan tadi tidak terlacak sistem.",
+      "Mengganti kata sandi akun SSO dari komputer kerja yang sama tanpa memutuskan jaringan maupun melaporkannya kepada tim keamanan."
+    ],
+    skor: [1, 5, 2, 3, 4],
+    pembahasan: "Protokol tanggap insiden kompromi kredensial/malware (infostealer): isolasi perangkat terinfeksi dari jaringan, cabut token sesi & perbarui kata sandi/MFA melalui perangkat bersih, serta laporkan segera ke CSIRT untuk pencegahan eskalasi akses.",
+    tingkat: 3, verified: true
+  },
+  {
+    id: "TKP-141", subtes: "TKP", topik: "TIK", era: "prediksi2027", dibuat: "2026-11-20", tipe: "Tata Kelola AI & UU PDP",
+    soal: "Tim Anda ditugasi menyusun kajian evaluasi program bantuan kesehatan daerah dalam waktu singkat. Seorang rekan mengusulkan agar seluruh tabel mentah berisi nama lengkap, NIK, dan riwayat diagnosis medis ribuan warga diunggah ke layanan AI publik agar ringkasan statistiknya selesai dalam lima menit. Sikap Anda adalah ....",
+    opsi: [
+      "Menyetujui usulan tersebut karena kecepatan penyelesaian laporan merupakan indikator utama penilaian kinerja tim oleh pimpinan.",
+      "Mengingatkan larangan UU PDP atas data kesehatan warga, lalu memandu tim melakukan agregasi/anonimisasi lokal sebelum analisis.",
+      "Mengunggah separuh data warga saja ke layanan AI publik agar risiko kebocoran informasi pribadi tidak terlalu besar.",
+      "Menolak penggunaan perangkat teknologi apa pun dan meminta tim menghitung ribuan baris data secara manual dengan kalkulator.",
+      "Membiarkan rekan tersebut mengunggah data ke AI publik menggunakan akun pribadinya sendiri agar nama Anda tidak ikut tercatat."
+    ],
+    skor: [1, 5, 2, 4, 3],
+    pembahasan: "Riwayat kesehatan dan NIK termasuk data pribadi spesifik/sensitif menurut UU No. 27 Tahun 2022 (UU PDP). Pemanfaatan TIK/AI wajib mematuhi prinsip privasi dengan melakukan pengolahan lokal atau anonimisasi total sebelum analisis.",
+    tingkat: 3, verified: true
+  },
+  {
+    id: "TKP-142", subtes: "TKP", topik: "Jejaring Kerja", era: "prediksi2027", dibuat: "2026-11-20", tipe: "Interoperabilitas Satu Data",
+    soal: "Dalam rapat integrasi portal Satu Data tingkat provinsi, perwakilan salah satu dinas teknis enggan membagikan antarmuka data (API) sektoralnya karena khawatir wewenang pengelolaan datanya diambil alih oleh unit Anda. Sebagai koordinator tim integrasi, pendekatan kolaboratif yang Anda lakukan adalah ....",
+    opsi: [
+      "Melaporkan kepala dinas teknis tersebut kepada gubernur agar segera dijatuhi sanksi disiplin karena menghambat program daerah.",
+      "Membangun dialog konstruktif, menjamin kepemilikan data tetap pada dinas wali data lewat berita acara, dan menunjukkan manfaat bersama.",
+      "Menghentikan proses integrasi dengan dinas tersebut dan membiarkan portal Satu Data provinsi berjalan tanpa data dari sektor itu.",
+      "Membuat estimasi data bayangan secara sepihak untuk menggantikan data resmi milik dinas teknis yang enggan berkolaborasi.",
+      "Meminta staf teknologi informasi unit Anda menyalin paksa basis data dinas tersebut tanpa sepengetahuan pejabat wali datanya."
+    ],
+    skor: [3, 5, 2, 1, 4],
+    pembahasan: "Jejaring kerja lintas instansi (Whole-of-Government & Satu Data Indonesia) menuntut kemampuan mengatasi ego sektoral lewat komunikasi empatik, kejelasan tata kelola hak wali data, dan penyelarasan manfaat bersama.",
+    tingkat: 3, verified: true
+  },
+  {
+    id: "TKP-143", subtes: "TKP", topik: "Sosial Budaya", era: "prediksi2027", dibuat: "2026-11-20", tipe: "Komunikasi Lintas Budaya",
+    soal: "Anda ditugaskan memimpin sosialisasi pembangunan klinik kesehatan terpadu di sebuah kecamatan pedalaman, namun sejumlah tokoh adat menolak lokasi awal karena berdekatan dengan situs hutan larangan yang dihormati warga setempat. Langkah paling bijaksana yang Anda ambil adalah ....",
+    opsi: [
+      "Tetap memaksakan pembangunan di titik awal dengan pengawalan aparat keamanan karena lahan tersebut tercatat sebagai aset pemda.",
+      "Membatalkan seluruh rencana pembangunan klinik kesehatan di kecamatan tersebut dan memindahkannya ke kabupaten lain.",
+      "Mengadakan musyawarah bersama tokoh adat dan pemda untuk menyesuaikan tata letak bangunan agar selaras dengan kearifan lokal.",
+      "Menyalahkan warga setempat sebagai kelompok yang antipembangunan di hadapan media massa lokal agar mereka merasa tertekan.",
+      "Menunda kegiatan sosialisasi tanpa batas waktu sambil menunggu tokoh adat mengubah pendiriannya secara sukarela."
+    ],
+    skor: [2, 1, 5, 3, 4],
+    pembahasan: "Kepekaan sosial budaya dalam pembangunan publik menuntut penghormatan terhadap kearifan lokal dan dialog partisipatif bersama tokoh masyarakat guna menemukan solusi tata ruang yang diterima bersama tanpa mengorbankan layanan kesehatan.",
+    tingkat: 3, verified: true
+  },
+  {
+    id: "TKP-144", subtes: "TKP", topik: "Anti-Radikalisme", era: "prediksi2027", dibuat: "2026-11-20", tipe: "Pencegahan Intoleransi Internal",
+    soal: "Anda diundang masuk ke sebuah grup percakapan daring tidak resmi yang beranggotakan sejumlah pegawai lintas bidang. Di dalamnya, admin grup rutin menyebarkan pesan yang melabeli kelompok masyarakat berbeda keyakinan sebagai musuh negara dan mengajak pegawai memboikot pelayanan bagi mereka. Tindakan Anda adalah ....",
+    opsi: [
+      "Ikut menyebarkan ulang pesan tersebut ke grup keluarga karena menganggap isinya sebagai kajian internal yang perlu didukung.",
+      "Tetap bertahan sebagai anggota pasif di dalam grup tersebut tanpa berkomentar agar tidak dimusuhi oleh rekan-rekan kerja.",
+      "Menolak ajakan diskriminatif, mendokumentasikan bukti, keluar dari grup, dan melaporkannya ke pimpinan/inspektorat sesuai mekanisme.",
+      "Membalas pesan admin dengan caci maki bernada kasar di dalam grup hingga memicu pertengkaran terbuka antarpegawai di kantor.",
+      "Langsung keluar dari grup percakapan tersebut secara diam-diam tanpa melaporkan adanya potensi diskriminasi layanan publik."
+    ],
+    skor: [1, 2, 5, 3, 4],
+    pembahasan: "Sikap anti-radikalisme ASN menghadapi infiltrasi intoleransi dan diskriminasi layanan publik: tolak doktrin eksklusif-radikal, amankan bukti secara terukur, hindari konfrontasi anarkis, dan laporkan melalui jalur pengawasan internal resmi untuk pembinaan/penindakan.",
+    tingkat: 3, verified: true
   }
 ];

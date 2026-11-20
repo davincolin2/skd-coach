@@ -915,17 +915,32 @@ function topicsOf(subtes) {
   return base;
 }
 function questionEraInfo(q) {
-  if (!q) return { key: 'fr_historis', badge: '🏛️ Pola FR BKN', title: 'Pola Historis FR BKN 2019–2024', cls: 'teal' };
+  if (!q) return { key: 'fr_historis', badge: '🏛️ Pola FR BKN', title: 'Pola Historis FR BKN 2019–2024', cls: 'teal', isNew: false };
   const m = String(q.id || '').match(/^(TWK|TIU|TKP)-(\d+)/);
   const num = m ? parseInt(m[2], 10) : 0;
   const sub = m ? m[1] : q.subtes;
-  const isPred = (sub === 'TWK' && num >= 61) || (sub === 'TIU' && num >= 71) || (sub === 'TKP' && num >= 91) || /SPBE|MBG|BGN|Karhutla|Danantara|KUHP|PDP|CSIRT|2026|2027/i.test(String(q.soal || ''));
-  return isPred
-    ? { key: 'prediksi2027', badge: '🚀 Prediksi 2026/2027', title: 'Prediksi HOTS CPNS 2026/2027', cls: 'amber' }
-    : { key: 'fr_historis', badge: '🏛️ Pola FR BKN', title: 'Pola Historis FR BKN 2019–2024', cls: 'teal' };
+  const re2027 = /SPBE|MBG|BGN|Karhutla|Polhut|Polisi Hutan|Manggala Agni|Garuda|Terintegrasi|Danantara|KUHP|KUHAP|PDP|27\/2022|1\/2023|1\/2026|20\/2023|CSIRT|BSSN|Deepfake|E-Katalog|DTSEN|MPP|IKD|WBS|Whistleblowing|LHKPN|Komcad|Generative AI|AI publik|ransomware|phishing|Zero-Trust|3T|disabilitas|hilirisasi|2026|2027/i;
+  const isPred = q.era === 'prediksi2027' || (q.era !== 'fr_historis' && ((sub === 'TWK' && num >= 61) || (sub === 'TIU' && num >= 71) || (sub === 'TKP' && num >= 91) || q.tingkat >= 3 || re2027.test(String(q.soal || '') + ' ' + String(q.pembahasan || ''))));
+  if (isPred) {
+    const isNew = !!q.dibuat;
+    return {
+      key: 'prediksi2027',
+      badge: isNew ? ('🆕 Batch ' + q.dibuat) : '🚀 Prediksi 2026/2027',
+      title: 'Prediksi HOTS CPNS 2026/2027' + (isNew ? ' · Batch Harian ' + q.dibuat : ''),
+      cls: 'amber',
+      isNew,
+      dibuat: q.dibuat || ''
+    };
+  }
+  return { key: 'fr_historis', badge: '🏛️ Pola FR BKN', title: 'Pola Historis FR BKN 2019–2024', cls: 'teal', isNew: false };
+}
+function matchesEra(q, era) {
+  if (!era) return true;
+  if (era === 'batch_baru') return !!(q && q.dibuat);
+  return questionEraInfo(q).key === era;
 }
 function bankCount(subtes, topik, era) {
-  return QLIST.filter(q => (!subtes || q.subtes === subtes) && (!topik || q.topik === topik) && (!era || questionEraInfo(q).key === era)).length;
+  return QLIST.filter(q => (!subtes || q.subtes === subtes) && (!topik || q.topik === topik) && matchesEra(q, era)).length;
 }
 
 function validateQuestion(o, existing) {
@@ -1114,7 +1129,7 @@ function pickQuestions(o) {
   const avoidMap = o.avoidMap || recentUserAvoidMap(o.user || activeUser(), 3);
   avoid.forEach(id => { if (!avoidMap[id] || avoidMap[id] < 24) avoidMap[id] = 24; });
   const now = Date.now(), h24 = 86400000;
-  let list = shuffle(QLIST.filter(q => (!o.subtes || q.subtes === o.subtes) && (!o.topik || q.topik === o.topik) && (!o.era || questionEraInfo(q).key === o.era) && ex.indexOf(q.id) < 0 && (!o.maxLevel || q.tingkat <= o.maxLevel)));
+  let list = shuffle(QLIST.filter(q => (!o.subtes || q.subtes === o.subtes) && (!o.topik || q.topik === o.topik) && matchesEra(q, o.era) && ex.indexOf(q.id) < 0 && (!o.maxLevel || q.tingkat <= o.maxLevel)));
   const predBonusMap = {};
   if (o.predictive) {
     cpnsPredictionReport(o.user).forEach(r => { predBonusMap[r.subtes + '|' + r.topik] = r.priorityScore; });
@@ -1124,7 +1139,7 @@ function pickQuestions(o) {
     const inAvoid = avoidMap[q.id] || 0;
     const recentPractice = s.last && (now - s.last < h24) ? 7 : 0;
     const weaknessPull = s.n ? (1 - s.c / s.n) * 9 : 3.5; // soal belum tersentuh atau sering salah diprioritaskan
-    const predPull = o.predictive ? (predBonusMap[q.subtes + '|' + q.topik] || 0) * 8 + (q.tingkat >= 2 ? 1.5 : 0) : 0;
+    const predPull = o.predictive ? (predBonusMap[q.subtes + '|' + q.topik] || 0) * 8 + (q.tingkat >= 2 ? 1.5 : 0) + (q.dibuat ? 3.5 : 0) : 0;
     const score = s.n * 13 + inAvoid + recentPractice - weaknessPull - predPull + Math.random() * 5.5;
     return { q, k: score };
   }).sort((a, b) => a.k - b.k);
@@ -1832,6 +1847,14 @@ function optionVisualSVG(q, origIdx) {
         gridMirrorSVG(['BR', 'TR'], 'R', 66),
         gridMirrorSVG(['TR', 'BL'], 'R', 66)
       ][origIdx] || '';
+    case 'TIU-112':
+      return [
+        rotBarSVG(0, true, 2, 66),
+        rotBarSVG(270, false, 2, 66),
+        rotBarSVG(0, false, 2, 66),
+        rotBarSVG(0, false, 3, 66),
+        rotBarSVG(180, true, 2, 66)
+      ][origIdx] || '';
     default:
       return '';
   }
@@ -2007,6 +2030,18 @@ function figuralSVG(q) {
         box('Bangun Asal', gridMirrorSVG(['TL', 'BR'], 'L', 78)) +
         '<div style="height:86px;border-left:3px dashed var(--amber);padding-left:6px;display:flex;align-items:center"><span class="tiny" style="color:var(--amber);font-weight:800;writing-mode:vertical-rl">CERMIN</span></div>' +
         qBox('Bayangan ?')
+      );
+    case 'TIU-112':
+      return wrap('Deret Serial Multi-Atribut: Rotasi 90° Berlawanan Jarum Jam (CCW) + Inversi Pusat + Siklus Garis Bawah',
+        box('Gambar 1', rotBarSVG(0, false, 1, 70)) +
+        '<span class="muted">→</span>' +
+        box('Gambar 2', rotBarSVG(270, true, 2, 70)) +
+        '<span class="muted">→</span>' +
+        box('Gambar 3', rotBarSVG(180, false, 3, 70)) +
+        '<span class="muted">→</span>' +
+        box('Gambar 4', rotBarSVG(90, true, 1, 70)) +
+        '<span class="muted">→</span>' +
+        qBox('Gambar 5 ?')
       );
     default:
       return '';
@@ -2658,6 +2693,64 @@ function mathLogicVisualSVG(q) {
           '<text x="315" y="68" text-anchor="middle" font-size="9.5" font-weight="800" fill="var(--teal)">ANGKA KREDIT</text>' +
           '<text x="315" y="84" text-anchor="middle" font-size="8.5" fill="var(--muted)">(Sebagian Fungsional)</text>' +
         '</svg></div>');
+    case 'TIU-106':
+      return seqDiagram('Visualisasi Deret Dua Larik (Biru: Ganjil · Emas: Genap)', ['3', '4', '6', '8', '9', '16', '12', '32', '?', '?'], true);
+    case 'TIU-107':
+      return wrap('Grafik Batang & Tabel Pagu vs Realisasi Anggaran Transformasi Digital (Miliar Rupiah)',
+        '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;align-items:center">' +
+          '<svg width="270" height="155" viewBox="0 0 270 155" style="max-width:100%;margin:auto">' +
+            '<line x1="36" y1="124" x2="256" y2="124" stroke="currentColor" stroke-width="1.8"/>' +
+            '<line x1="36" y1="16" x2="36" y2="124" stroke="currentColor" stroke-width="1.8"/>' +
+            '<rect x="48" y="71" width="16" height="53" rx="3" fill="var(--tiu)" opacity="0.45"/><rect x="66" y="79" width="16" height="45" rx="3" fill="var(--teal)"/><text x="65" y="138" text-anchor="middle" font-size="9.5" font-weight="700" fill="currentColor">Dir. A</text>' +
+            '<rect x="100" y="44" width="16" height="80" rx="3" fill="var(--tiu)" opacity="0.45"/><rect x="118" y="54" width="16" height="70" rx="3" fill="var(--teal)"/><text x="117" y="138" text-anchor="middle" font-size="9.5" font-weight="700" fill="currentColor">Dir. B</text>' +
+            '<rect x="152" y="84" width="16" height="40" rx="3" fill="var(--tiu)" opacity="0.45"/><rect x="170" y="88" width="16" height="36" rx="3" fill="var(--teal)"/><text x="169" y="138" text-anchor="middle" font-size="9.5" font-weight="700" fill="currentColor">Dir. C</text>' +
+            '<rect x="204" y="24" width="16" height="100" rx="3" fill="var(--tiu)" opacity="0.45"/><rect x="222" y="38" width="16" height="86" rx="3" fill="var(--teal)"/><text x="221" y="138" text-anchor="middle" font-size="9.5" font-weight="700" fill="currentColor">Dir. D</text>' +
+            '<rect x="68" y="6" width="10" height="8" rx="2" fill="var(--tiu)" opacity="0.45"/><text x="82" y="13" font-size="8.5" fill="currentColor">Pagu (M)</text>' +
+            '<rect x="148" y="6" width="10" height="8" rx="2" fill="var(--teal)"/><text x="162" y="13" font-size="8.5" fill="currentColor">Realisasi (M)</text>' +
+          '</svg>' +
+          '<table class="tbl" style="font-size:.82rem;margin:0"><thead><tr><th>Unit</th><th>Pagu</th><th>Realisasi</th><th>% Serapan</th></tr></thead><tbody>' +
+            '<tr><td>Direktorat A</td><td>Rp80 M</td><td>Rp68 M</td><td>? %</td></tr>' +
+            '<tr><td>Direktorat B</td><td>Rp120 M</td><td>Rp105 M</td><td>? %</td></tr>' +
+            '<tr><td>Direktorat C</td><td>Rp60 M</td><td>Rp54 M</td><td>? %</td></tr>' +
+            '<tr><td>Direktorat D</td><td>Rp150 M</td><td>Rp129 M</td><td>? %</td></tr>' +
+          '</tbody></table>' +
+        '</div>');
+    case 'TIU-108':
+      return wrap('Sketsa Denah Gabungan Plaza Layanan Terpadu (Persegi Panjang + Setengah Lingkaran)',
+        '<div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:center">' +
+          '<svg width="265" height="145" viewBox="0 0 265 145" style="max-width:100%">' +
+            '<rect x="28" y="28" width="140" height="90" fill="rgba(56,189,248,.16)" stroke="var(--tiu)" stroke-width="2.3"/>' +
+            '<path d="M168,28 A45,45 0 0,1 168,118 Z" fill="rgba(45,212,191,.18)" stroke="var(--teal)" stroke-width="2.3"/>' +
+            '<line x1="168" y1="28" x2="168" y2="118" stroke="var(--amber)" stroke-width="1.8" stroke-dasharray="4 3"/>' +
+            '<text x="98" y="20" text-anchor="middle" font-size="11" font-weight="800" fill="var(--tiu)">p = 20 m</text>' +
+            '<text x="20" y="76" text-anchor="end" font-size="10.5" font-weight="800" fill="var(--tiu)">14 m</text>' +
+            '<text x="163" y="76" text-anchor="end" font-size="10" font-weight="800" fill="var(--amber)">d = 14 m</text>' +
+            '<text x="98" y="72" text-anchor="middle" font-size="10.5" font-weight="800" fill="currentColor">Persegi Panjang</text>' +
+            '<text x="190" y="76" text-anchor="middle" font-size="9.5" font-weight="800" fill="var(--teal)">½ Lingk.</text>' +
+            '<text x="125" y="136" text-anchor="middle" font-size="11" font-weight="800" fill="var(--amber)">Luas Total Plaza (X) = ? m²</text>' +
+          '</svg>' +
+          '<div style="background:var(--amber-soft);border:1.5px dashed var(--amber);border-radius:12px;padding:12px 16px;text-align:center">' +
+            '<div class="tiny" style="color:var(--amber);font-weight:800">KUANTITAS PEMBANDING</div>' +
+            '<div style="font-size:1.15rem;font-weight:800;margin-top:4px">Y = 355 m²</div>' +
+            '<div class="tiny muted" style="margin-top:4px">π = 22/7 · Bandingkan X vs Y (?)</div>' +
+          '</div>' +
+        '</div>');
+    case 'TIU-109':
+      return wrap('Skema Rantai Implikasi (P ⇒ Q ⇒ R) & Fakta ~R',
+        '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:8px;align-items:center;text-align:center">' +
+          '<div style="background:var(--bg2);border:1.5px solid var(--tiu);border-radius:10px;padding:8px"><div class="tiny" style="color:var(--tiu);font-weight:800">PREMIS P</div><div class="small">Lulus Uji Penetrasi BSSN</div></div>' +
+          '<div style="background:var(--bg2);border:1.5px solid var(--teal);border-radius:10px;padding:8px"><div class="tiny" style="color:var(--teal);font-weight:800">⇒ PREMIS Q ⇒ R</div><div class="small">Sertifikat Laik ⇒ Portal INA Digital</div></div>' +
+          '<div style="background:var(--bg2);border:1.5px solid var(--red);border-radius:10px;padding:8px"><div class="tiny" style="color:var(--red);font-weight:800">FAKTA (~R)</div><div class="small">Tidak Masuk Portal INA Digital</div></div>' +
+          '<div style="background:var(--amber-soft);border:1.5px dashed var(--amber);border-radius:10px;padding:8px"><div class="tiny" style="color:var(--amber);font-weight:800">SIMPULAN SAH</div><div style="font-weight:800;color:var(--amber)">Modus Tollens = ?</div></div>' +
+        '</div>');
+    case 'TIU-110':
+      return wrap('Linimasa Penjadwalan 6 Sesi Ujian SKD CAT BKN (Sesi 1 → Sesi 6)',
+        '<div style="display:grid;grid-template-columns:repeat(6,minmax(56px,1fr));gap:6px;text-align:center">' +
+          [['Sesi 1', '?'], ['Sesi 2', '?'], ['Sesi 3', '?'], ['Sesi 4', 'R ✓'], ['Sesi 5 🎯', '?'], ['Sesi 6', '?']].map((x, i) =>
+            '<div style="background:' + (i === 4 ? 'var(--amber-soft)' : 'var(--bg2)') + ';border:1.5px ' + (i === 4 ? 'dashed var(--amber)' : 'solid ' + (i === 3 ? 'var(--teal)' : 'var(--line)')) + ';border-radius:9px;padding:7px 4px">' +
+              '<div class="tiny muted" style="font-weight:800">' + x[0] + '</div><strong style="color:' + (i === 4 ? 'var(--amber)' : 'currentColor') + '">' + x[1] + '</strong></div>'
+          ).join('') +
+        '</div>');
     default:
       return '';
   }
@@ -3526,8 +3619,15 @@ function runPractice(v, qids, o) {
 }
 function blueprintCardHTML(user) {
   const predRows = cpnsPredictionReport(user || activeUser()).slice(0, 6);
+  const totPred = bankCount(null, null, 'prediksi2027');
+  const totNew = bankCount(null, null, 'batch_baru');
+  const latestBatchDate = QLIST.reduce((mx, q) => (q.dibuat && q.dibuat > mx ? q.dibuat : mx), '');
   return '<section class="card" style="margin-top:16px">' +
-    '<div class="row between" style="gap:10px;margin-bottom:8px"><div><div class="eyebrow" style="color:var(--amber)">Radar Prediksi SKD CPNS 2026 (Bobot CAT BKN × Akurasi Kamu)</div><h3 style="margin:0">Topik Peluang Keluar Tertinggi &amp; Prioritas Belajar Hari Ini</h3></div><button type="button" class="btn primary sm" id="btnPredDrill">' + ic('bolt', 'sm') + ' Latihan Prediksi 15 Soal</button></div>' +
+    '<div class="row between" style="gap:10px;margin-bottom:10px;flex-wrap:wrap"><div><div class="eyebrow" style="color:var(--amber)">SKD Daily Question Engine · Radar Prediksi CPNS 2026/2027</div><h3 style="margin:0">Paket Harian Prediksi &amp; Topik Peluang Keluar Tertinggi</h3><div class="tiny muted" style="margin-top:3px">Stok Prediksi 2026/2027: <strong>' + totPred + ' soal HOTS</strong> (TWK ' + bankCount('TWK', null, 'prediksi2027') + ' · TIU ' + bankCount('TIU', null, 'prediksi2027') + ' · TKP ' + bankCount('TKP', null, 'prediksi2027') + ')' + (totNew ? ' · <span style="color:var(--amber);font-weight:700">🆕 Batch Terbaru (' + esc(latestBatchDate) + '): +' + totNew + ' soal</span>' : '') + '</div></div>' +
+    '<div class="row" style="gap:8px;flex-wrap:wrap">' +
+      (totNew ? '<button type="button" class="btn sm" style="border-color:var(--amber);color:var(--amber)" id="btnBatchToday">🆕 Batch Hari Ini (' + totNew + ' Soal)</button>' : '') +
+      '<button type="button" class="btn primary sm" id="btnPredDrill">' + ic('bolt', 'sm') + ' Paket Harian Prediksi (30 Soal)</button>' +
+    '</div></div>' +
     '<div class="grid g3" style="margin-bottom:14px">' + predRows.map(r => {
       const accTxt = r.acc == null ? 'Belum diuji' : Math.round(r.acc * 100) + '% akurat';
       const cls = r.acc == null ? 'amber' : r.acc < 0.65 ? 'red' : r.acc < 0.8 ? 'amber' : 'teal';
@@ -3538,7 +3638,7 @@ function blueprintCardHTML(user) {
         '<div class="tiny" style="margin-top:6px;font-weight:700">Porsi BKN: ' + r.countBkn + ' soal/paket · ' + accTxt + '</div>' +
       '</a>';
     }).join('') + '</div>' +
-    '<div class="row between" style="gap:10px;margin-bottom:8px;padding-top:10px;border-top:1px dashed var(--line)"><div><div class="eyebrow" style="color:var(--teal)">Cetak Biru Distribusi Bank Soal</div><h3 style="margin:0">Peta Lengkap Bank Soal (' + QLIST.length + ' Soal HOTS · ' + (Math.round(QLIST.length / CONFIG.SIM.TOTAL_SOAL * 10) / 10) + '× Paket CAT)</h3></div><span class="chip teal">Anti-Ulang 3 Sesi Simulasi</span></div>' +
+    '<div class="row between" style="gap:10px;margin-bottom:8px;padding-top:10px;border-top:1px dashed var(--line)"><div><div class="eyebrow" style="color:var(--teal)">Cetak Biru Distribusi Bank Soal</div><h3 style="margin:0">Peta Lengkap Bank Soal (' + QLIST.length + ' Soal HOTS · ' + (Math.round(QLIST.length / CONFIG.SIM.TOTAL_SOAL * 10) / 10) + '× Paket CAT)</h3></div><span class="chip teal">Proporsi Presisi 30:35:45</span></div>' +
     '<div class="grid g3">' + CONFIG.SUBTES.map(s => {
       const subTot = bankCount(s) || 1;
       const pctTotal = Math.round(subTot * 1000 / Math.max(1, QLIST.length)) / 10;
@@ -3562,8 +3662,8 @@ function renderPractice(v, args) {
     userIdentityBoxHTML('pr') +
     '<div class="form-grid"><div class="field"><label for="pS">Subtes</label><select id="pS"><option value="">Campur (TWK-TIU-TKP)</option>' + CONFIG.SUBTES.map(s => '<option value="' + s + '">' + s + ' — ' + esc(CONFIG.SUBTES_NAMA[s]) + '</option>').join('') + '</select></div>' +
     '<div class="field"><label for="pT">Topik</label><select id="pT"></select></div>' +
-    '<div class="field"><label for="pE">Sumber &amp; Era Soal</label><select id="pE"><option value="">Semua Bank Soal (Historis FR + Prediksi)</option><option value="fr_historis">🏛️ Historis FR BKN 2019–2024</option><option value="prediksi2027">🚀 Prediksi Masa Depan CPNS 2026/2027</option></select></div>' +
-    '<div class="field"><label for="pN">Jumlah soal</label><select id="pN">' + [5, 8, 10, 15, 20, 30].map(n => '<option value="' + n + '"' + (n === 10 ? ' selected' : '') + '>' + n + ' soal</option>').join('') + '</select></div>' +
+    '<div class="field"><label for="pE">Sumber &amp; Era Soal</label><select id="pE"><option value="">Semua Bank Soal (Historis FR + Prediksi)</option><option value="prediksi2027">🚀 Prediksi Masa Depan CPNS 2026/2027</option><option value="batch_baru">🆕 Batch Harian Terbaru (2026/2027)</option><option value="fr_historis">🏛️ Historis FR BKN 2019–2024</option></select></div>' +
+    '<div class="field"><label for="pN">Jumlah soal</label><select id="pN">' + [5, 8, 10, 15, 22, 30, 45].map(n => '<option value="' + n + '"' + (n === 15 ? ' selected' : '') + '>' + n + ' soal</option>').join('') + '</select></div>' +
     '<div class="full field"><label for="pTm">Timer (opsional)</label><div class="check"><input type="checkbox" id="pTm"><label for="pTm">Batasi 60 detik per soal</label></div></div></div>' +
     '<p class="small muted" id="pAvail"></p><div class="row"><button class="btn primary" type="submit">' + ic('play', 'sm') + ' Mulai Latihan</button><a class="btn ghost" href="#/materi">' + ic('bulb', 'sm') + ' Baca Materi &amp; Jembatan Keledai</a><a class="btn ghost" href="#/leaderboard">' + ic('trophy', 'sm') + ' Leaderboard</a></div><div class="err" id="pErr" role="alert"></div></form>' +
     blueprintCardHTML() +
@@ -3590,7 +3690,7 @@ function renderPractice(v, args) {
     const s = sS.value, t = sT.value, era = sE.value || null, n = +$('#pN', v).value;
     const qids = s ? pickQuestions({ subtes: s, topik: t || null, era, n }) : pickMixed(n, null, era);
     if (!qids.length) { $('#pErr', v).textContent = 'Tidak ada soal untuk pilihan ini. Coba ganti filter Era atau Tambahkan soal di Pengaturan > Impor Soal.'; return; }
-    const eraLbl = era === 'fr_historis' ? ' · Pola FR' : era === 'prediksi2027' ? ' · Prediksi 2026/2027' : '';
+    const eraLbl = era === 'fr_historis' ? ' · Pola FR' : era === 'prediksi2027' ? ' · Prediksi 2026/2027' : era === 'batch_baru' ? ' · Batch Harian Terbaru' : '';
     runPractice(v, qids, {
       user: ident.user, instansi: ident.instansi,
       title: (s || 'Campur') + (t ? ' · ' + t : '') + eraLbl,
@@ -3606,14 +3706,32 @@ function renderPractice(v, args) {
     predBtn.onclick = () => {
       const ident = readAndSaveUser(v, 'pr', $('#pErr', v));
       if (!ident) return;
-      const qids = pickPredictive(15, sS.value || null, ident.user);
+      const qids = pickPredictive(30, sS.value || null, ident.user);
       if (!qids.length) { $('#pErr', v).textContent = 'Bank soal kosong.'; return; }
       runPractice(v, qids, {
         user: ident.user, instansi: ident.instansi,
-        title: 'Prediksi CPNS 2026' + (sS.value ? ' · ' + sS.value : ' (Campur HOTS)'),
+        title: 'Paket Harian Prediksi 2026/2027' + (sS.value ? ' · ' + sS.value : ' (30 Soal Proporsional)'),
         back: '#/latihan',
         perQSec: $('#pTm', v).checked ? 60 : 0,
-        note: () => 'Paket ini disusun otomatis dari bobot empiris CAT BKN 2026 × topik akurasi terendah milik <strong>' + esc(ident.user) + '</strong>.',
+        note: () => 'Paket Harian ini disusun otomatis dari bobot cetak biru CAT BKN 2026/2027 × topik akurasi terendah milik <strong>' + esc(ident.user) + '</strong>.',
+        actions: '<a class="btn primary" href="#/latihan">Latihan lagi</a><a class="btn" href="#/simulasi">Simulasi Penuh</a>'
+      });
+    };
+  }
+  const batchBtn = $('#btnBatchToday', v);
+  if (batchBtn) {
+    batchBtn.onclick = () => {
+      const ident = readAndSaveUser(v, 'pr', $('#pErr', v));
+      if (!ident) return;
+      const s = sS.value;
+      const qids = s ? pickQuestions({ subtes: s, era: 'batch_baru', n: 22, user: ident.user }) : QLIST.filter(q => !!q.dibuat).map(q => q.id);
+      if (!qids.length) { $('#pErr', v).textContent = 'Belum ada batch harian baru untuk filter ini.'; return; }
+      runPractice(v, qids, {
+        user: ident.user, instansi: ident.instansi,
+        title: '🆕 Batch Harian Prediksi 2026/2027 (' + qids.length + ' Soal)',
+        back: '#/latihan',
+        perQSec: $('#pTm', v).checked ? 60 : 0,
+        note: () => 'Kamu baru saja menyelesaikan <strong>Batch Harian Terbaru (+22 soal HOTS proporsional 6 TWK : 7 TIU : 9 TKP)</strong>.',
         actions: '<a class="btn primary" href="#/latihan">Latihan lagi</a><a class="btn" href="#/simulasi">Simulasi Penuh</a>'
       });
     };
