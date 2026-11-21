@@ -4812,5 +4812,315 @@ window.QUESTION_BANK = [
     skor: [1, 2, 5, 3, 4],
     pembahasan: "Sikap anti-radikalisme ASN menghadapi infiltrasi intoleransi dan diskriminasi layanan publik: tolak doktrin eksklusif-radikal, amankan bukti secara terukur, hindari konfrontasi anarkis, dan laporkan melalui jalur pengawasan internal resmi untuk pembinaan/penindakan.",
     tingkat: 3, verified: true
+  },
+
+  /* ==================== BATCH BACKFILL VARIASI BARU 2026-11-21 (+22 SOAL: 6 TWK | 7 TIU | 9 TKP) ==================== */
+  {
+    id: "TWK-097", subtes: "TWK", topik: "Pilar Negara", era: "prediksi2027", dibuat: "2026-11-21", tipe: "KUHP Nasional & Keadilan Restoratif",
+    soal: "Dalam pemberlakuan penuh KUHP Nasional (UU No. 1 Tahun 2023) mulai Januari 2026, hakim dapat menjatuhkan pidana kerja sosial atau pidana pengawasan terhadap pelaku tindak pidana ringan tertentu yang sebelumnya telah memulihkan kerugian korban. Pergeseran paradigma pemidanaan tersebut selaras dengan nilai Pancasila karena ....",
+    opsi: [
+      "menghapus seluruh bentuk sanksi pidana penjara agar beban pembiayaan lembaga pemasyarakatan menjadi nol",
+      "mengubah orientasi hukum dari sekadar pembalasan menuju pemulihan keseimbangan sosial dan pembinaan manusia",
+      "menyerahkan kewenangan pemutusan perkara pidana sepenuhnya kepada kesepakatan lisan tanpa putusan hakim",
+      "mengutamakan keringanan hukuman bagi aparatur negara dibandingkan warga sipil demi menjaga citra birokrasi",
+      "menyamakan seluruh jenis pelanggaran berat dan ringan agar proses peradilan berjalan jauh lebih ringkas"
+    ],
+    kunci: 1,
+    pembahasan: "KUHP Nasional (UU No. 1 Tahun 2023) menggeser paradigma retributif (pembalasan warisan kolonial) menuju keadilan korektif, restoratif, dan rehabilitatif. Pemulihan kerugian korban serta pidana alternatif kerja sosial/pengawasan mencerminkan harkat kemanusiaan (Sila ke-2) dan keadilan sosial (Sila ke-5) tanpa menghapus kepastian hukum.",
+    tingkat: 3, verified: true
+  },
+  {
+    id: "TWK-098", subtes: "TWK", topik: "Pilar Negara", era: "prediksi2027", dibuat: "2026-11-21", tipe: "Hubungan Lembaga Negara & Checks and Balances",
+    soal: "Dalam proses legislasi tingkat nasional, sebuah Rancangan Undang-Undang (RUU) strategis telah dibahas bersama oleh DPR dan Presiden pada suatu masa persidangan, tetapi pada tahap akhir tidak mencapai persetujuan bersama. Berdasarkan mekanisme checks and balances dalam Pasal 20 UUD NRI 1945, konsekuensi konstitusional yang tepat adalah ....",
+    opsi: [
+      "RUU tersebut langsung berlaku sah menjadi undang-undang setelah melewati tenggat tiga puluh hari kalender",
+      "Presiden berwenang mengesahkan RUU tersebut secara sepihak melalui Peraturan Presiden agar tidak terjadi kekosongan",
+      "RUU tersebut tidak boleh diajukan lagi dalam persidangan DPR pada masa persidangan yang sama",
+      "Mahkamah Konstitusi mengambil alih pembahasan RUU tersebut untuk memutuskan pemberlakuannya secara final",
+      "Dewan Perwakilan Daerah menetapkan RUU tersebut secara sementara sampai terbentuk anggota DPR periode baru"
+    ],
+    kunci: 2,
+    pembahasan: "Pasal 20 ayat (2) dan (3) UUD NRI 1945 menegaskan setiap RUU dibahas bersama DPR dan Presiden untuk mendapat persetujuan bersama; jika tidak mendapat persetujuan bersama, RUU itu tidak boleh diajukan lagi dalam persidangan DPR masa itu. Aturan 30 hari (Pasal 20 ayat 5) hanya berlaku bila RUU sudah disetujui bersama namun tidak disahkan Presiden.",
+    tingkat: 3, verified: true
+  },
+  {
+    id: "TWK-099", subtes: "TWK", topik: "Integritas", era: "prediksi2027", dibuat: "2026-11-21", tipe: "Konflik Kepentingan E-Katalog",
+    soal: "Seorang pejabat pengadaan barang/jasa di dinas daerah tengah memproses pembelian perangkat jaringan melalui e-katalog. Saat menelaah profil penyedia yang menawarkan harga terendah, ia mengetahui bahwa komisaris perusahaan tersebut adalah adik iparnya sendiri. Tindakan yang paling mencerminkan integritas aparatur adalah ....",
+    opsi: [
+      "tetap memproses pembelian pada penyedia itu selama spesifikasi teknis terpenuhi dan tidak menerima imbalan uang",
+      "menyampaikan deklarasi benturan kepentingan tertulis kepada atasan lalu mengundurkan diri dari proses pemilihan penyedia",
+      "meminta adik iparnya mengubah susunan pengurus perusahaan sementara waktu agar dokumen pengadaan tampak netral",
+      "menggugurkan perusahaan adik iparnya secara diam-diam tanpa berita acara supaya terhindar dari sorotan auditor",
+      "melanjutkan negosiasi harga secara tertutup bersama penyedia tersebut agar efisiensi anggaran daerah tercapai cepat"
+    ],
+    kunci: 1,
+    pembahasan: "Prinsip pencegahan benturan kepentingan (conflict of interest) menuntut transparansi proaktif: pejabat yang memiliki afiliasi keluarga dengan calon penyedia wajib mendeklarasikannya secara tertulis dan menarik diri (recusal) dari pengambilan keputusan agar objektivitas dan akuntabilitas publik terjaga.",
+    tingkat: 3, verified: true
+  },
+  {
+    id: "TWK-100", subtes: "TWK", topik: "Bela Negara", era: "prediksi2027", dibuat: "2026-11-21", tipe: "Bela Negara Non-Militer & Ketahanan Siber",
+    soal: "Serangan ransomware yang mengenkripsi basis data rekam medis rumah sakit daerah dan melumpuhkan layanan rujukan masyarakat merupakan ancaman non-militer terhadap kedaulatan digital. Wujud aktualisasi bela negara sesuai profesi ASN (Pasal 27 ayat (3) UUD NRI 1945 & UU No. 23 Tahun 2019) yang paling tepat adalah ....",
+    opsi: [
+      "menyerahkan seluruh pengamanan sistem informasi layanan daerah sepenuhnya kepada unsur militer tanpa prosedur internal",
+      "membayar tebusan secara cepat menggunakan anggaran operasional agar aplikasi rumah sakit segera dapat diakses kembali",
+      "menerapkan tata kelola keamanan informasi, pencadangan terisolasi, serta koordinasi respons insiden dengan CSIRT dan BSSN",
+      "menutup permanen seluruh layanan digital rumah sakit lalu kembali pada arsip kertas agar terbebas dari risiko siber",
+      "menunggu arahan pengadilan siber sebelum mengisolasi perangkat jaringan yang sudah terinfeksi perangkat lunak jahat"
+    ],
+    kunci: 2,
+    pembahasan: "UU No. 23 Tahun 2019 tentang PSDN menempatkan pengabdian sesuai profesi sebagai salah satu wujud bela negara non-militer. Bagi ASN, menjaga ketahanan layanan publik dari ancaman siber dilakukan melalui kepatuhan standar keamanan informasi, backup terisolasi, dan sinergi respons insiden bersama tim CSIRT/BSSN.",
+    tingkat: 3, verified: true
+  },
+  {
+    id: "TWK-101", subtes: "TWK", topik: "Bahasa Indonesia", era: "prediksi2027", dibuat: "2026-11-21", tipe: "EYD V & Tata Naskah Dinas",
+    soal: "Cermati kalimat naskah dinas berikut sesuai kaidah EYD Edisi V dan struktur kalimat efektif! Kalimat manakah yang penulisan kata baku, kata depan, serta keefektifannya SELURUHNYA TEPAT?",
+    opsi: [
+      "Dalam rapat koordinasi tersebut membahas analisa resiko gangguan jaringan di seluruh kantor wilayah.",
+      "Seluruh pegawai negeri sipil di wajibkan memperbarui jadwal aktivitas kerja agar supaya layanan efektif.",
+      "Tim inspektorat melakukan analisis risiko secara sistematis terhadap tata kelola karier pegawai di kementerian.",
+      "Bagi para peserta seleksi yang telah dinyatakan lulus harap segera menyerahkan fotocopy ijasah dilegalisir.",
+      "Pimpinan unit kerja menghimbau seluruh staf untuk meningkatkan kwalitas pelayanan publik di ruang terpadu."
+    ],
+    kunci: 2,
+    pembahasan: "Opsi tepat menggunakan seluruh kata baku KBBI/EYD V ('analisis', 'risiko', 'sistematis', 'karier'), preposisi 'di kementerian' ditulis terpisah, serta memiliki Subjek ('Tim inspektorat') dan Predikat ('melakukan') jelas tanpa pleonasme. Kesalahan opsi lain: 'Dalam... membahas' (tanpa subjek) + 'analisa/resiko'; 'di wajibkan' + 'agar supaya'; 'Bagi para...' + 'fotocopy/ijasah/dilegalisir'; 'menghimbau/kwalitas'.",
+    tingkat: 2, verified: true
+  },
+  {
+    id: "TWK-102", subtes: "TWK", topik: "Bahasa Indonesia", era: "prediksi2027", dibuat: "2026-11-21", tipe: "Simpulan Wacana Panjang",
+    soal: "Bacalah wacana berikut dengan saksama!\n\"Program hilirisasi mineral strategis di Indonesia berhasil melipatgandakan nilai ekspor olahan dalam negeri dan memperluas penyerapan tenaga kerja terampil di luar Pulau Jawa. Kendati demikian, studi evaluasi lintas kementerian mencatat bahwa percepatan pembangunan kawasan smelter tanpa pengawasan reklamasi pascatambang dan pengelolaan limbah tailing berisiko menurunkan daya dukung air bersih warga sekitar. Oleh sebab itu, keberlanjutan ekonomi nasional menuntut penegakan standar lingkungan yang setara ketatnya dengan target investasi.\"\nSimpulan yang PALING TEPAT berdasarkan wacana tersebut adalah ....",
+    opsi: [
+      "Pembangunan kawasan smelter di luar Pulau Jawa sebaiknya dihentikan total karena merusak seluruh sumber air bersih",
+      "Keberhasilan hilirisasi mineral jangka panjang harus menyeimbangkan pertumbuhan nilai tambah ekonomi dengan pengawasan lingkungan ketat",
+      "Tenaga kerja terampil di luar Pulau Jawa masih belum mampu mengoperasikan teknologi pengelolaan limbah smelter modern",
+      "Nilai ekspor komoditas mentah Indonesia terbukti lebih ramah lingkungan dibandingkan produk hilirisasi industri mineral",
+      "Kementerian terkait telah memutuskan mengalihkan seluruh investasi industri mineral kembali ke kawasan industri Pulau Jawa"
+    ],
+    kunci: 1,
+    pembahasan: "Paragraf menyajikan dua sisi (manfaat ekonomi hilirisasi + risiko ekologis jika pengawasan lemah) lalu menegaskan sintesis pada kalimat penutup: keberlanjutan menuntut penegakan standar lingkungan setara ketatnya dengan target investasi. Opsi lain bersifat ekstrem atau menambah asumsi yang tidak terdapat dalam teks.",
+    tingkat: 2, verified: true
+  },
+  {
+    id: "TIU-113", subtes: "TIU", topik: "Numerik", era: "prediksi2027", dibuat: "2026-11-21", tipe: "Kecukupan Data",
+    soal: "Diketahui x dan y adalah bilangan bulat. Apakah nilai x lebih besar daripada y?\nPernyataan (1): x − y = 7\nPernyataan (2): x² > y²\nPutuskan apakah pernyataan (1) dan (2) berikut cukup untuk menjawab pertanyaan tersebut!",
+    opsi: [
+      "Pernyataan (1) SAJA cukup untuk menjawab pertanyaan, tetapi pernyataan (2) SAJA tidak cukup.",
+      "Pernyataan (2) SAJA cukup untuk menjawab pertanyaan, tetapi pernyataan (1) SAJA tidak cukup.",
+      "DUA pernyataan BERSAMA-SAMA cukup untuk menjawab pertanyaan, tetapi SATU pernyataan SAJA tidak cukup.",
+      "Pernyataan (1) SAJA cukup untuk menjawab pertanyaan dan pernyataan (2) SAJA cukup.",
+      "Pernyataan (1) dan pernyataan (2) tidak cukup untuk menjawab pertanyaan."
+    ],
+    kunci: 0,
+    pembahasan: "Uji Pernyataan (1) mandiri: x − y = 7 berarti x = y + 7. Karena 7 > 0, maka x PASTI lebih besar daripada y untuk semua bilangan bulat (jawaban tunggal: YA → (1) SAJA CUKUP). Uji Pernyataan (2) mandiri: x² > y² hanya berarti |x| > |y|. Jika x = 5, y = 2 maka x > y (YA); tetapi jika x = −5, y = 2 maka (−5)² = 25 > 4 namun x < y (TIDAK). Karena ada 2 hasil, (2) SAJA TIDAK CUKUP. Trik cepat: kuadrat tanpa syarat tanda (+/−) hampir selalu ambigu.",
+    tingkat: 3, verified: true
+  },
+  {
+    id: "TIU-114", subtes: "TIU", topik: "Numerik", era: "prediksi2027", dibuat: "2026-11-21", tipe: "Kecukupan Data",
+    soal: "Perhatikan sketsa ruang rapat dinas berbentuk persegi panjang (panjang p meter, lebar l meter, dengan p > 0 dan l > 0) di atas! Berapakah luas ruang rapat tersebut?\nPernyataan (1): Keliling ruang rapat tersebut adalah 36 meter.\nPernyataan (2): Panjang ruang rapat 4 meter lebih panjang daripada lebarnya.\nPutuskan apakah pernyataan (1) dan (2) berikut cukup untuk menjawab pertanyaan tersebut!",
+    opsi: [
+      "Pernyataan (1) SAJA cukup untuk menjawab pertanyaan, tetapi pernyataan (2) SAJA tidak cukup.",
+      "Pernyataan (2) SAJA cukup untuk menjawab pertanyaan, tetapi pernyataan (1) SAJA tidak cukup.",
+      "DUA pernyataan BERSAMA-SAMA cukup untuk menjawab pertanyaan, tetapi SATU pernyataan SAJA tidak cukup.",
+      "Pernyataan (1) SAJA cukup untuk menjawab pertanyaan dan pernyataan (2) SAJA cukup.",
+      "Pernyataan (1) dan pernyataan (2) tidak cukup untuk menjawab pertanyaan."
+    ],
+    kunci: 2,
+    pembahasan: "Uji (1) mandiri: 2(p + l) = 36 → p + l = 18. Bisa (p=10, l=8 → L=80) atau (p=12, l=6 → L=72), tidak tunggal → (1) saja TIDAK cukup. Uji (2) mandiri: p = l + 4. Bisa (l=4, p=8 → L=32) atau (l=6, p=10 → L=60), tidak tunggal → (2) saja TIDAK cukup. Gabungkan (1)+(2): p + l = 18 dan p − l = 4 → 2p = 22 → p = 11 m, l = 7 m → Luas = 11 × 7 = 77 m² (tunggal). Trik cepat: 2 variabel bebas butuh 2 persamaan linear independen.",
+    tingkat: 3, verified: true
+  },
+  {
+    id: "TIU-115", subtes: "TIU", topik: "Verbal", era: "prediksi2027", dibuat: "2026-11-21", tipe: "Memperkuat Argumen",
+    soal: "Bacalah argumen berikut!\n\"Dinas Perhubungan mengusulkan potongan tarif angkutan bus rapid transit (BRT) sebesar 40% pada jam sibuk pagi agar kepadatan mobil pribadi di koridor protokol menurun signifikan dalam enam bulan ke depan.\"\nPernyataan manakah yang PALING MEMPERKUAT argumen usulan kebijakan tersebut?",
+    opsi: [
+      "Survei komuter koridor itu mencatat 72% pengendara mobil siap beralih ke BRT jika ongkos lebih hemat, dan 45% kursi armada masih kosong.",
+      "Sebagian besar halte BRT di koridor protokol baru selesai dicat ulang sehingga tampilannya kini lebih rapi dan modern.",
+      "Data kependudukan menunjukkan jumlah penduduk usia sekolah di kecamatan pinggiran meningkat tipis selama dua tahun terakhir.",
+      "Pemilik kendaraan pribadi umumnya tetap memilih menyetir sendiri karena armada BRT sering terjebak macet di persimpangan utama.",
+      "Anggaran subsidi transportasi publik tahun ini telah dibahas dalam rapat komisi dewan daerah bersama dinas pendapatan."
+    ],
+    kunci: 0,
+    pembahasan: "Kesimpulan argumen: potongan tarif BRT 40% → pengguna mobil pribadi pindah ke BRT → macet turun. Fakta bahwa 72% pengendara mobil memang sensitif terhadap biaya ongkos (mau beralih) DAN kapasitas armada masih sanggup menampung penumpang baru (45% kursi kosong) secara langsung memvalidasi rantai sebab-akibat tersebut. Opsi lain tidak relevan, hanya latar belakang, atau justru memperlemah.",
+    tingkat: 3, verified: true
+  },
+  {
+    id: "TIU-116", subtes: "TIU", topik: "Verbal", era: "prediksi2027", dibuat: "2026-11-21", tipe: "Memperlemah Argumen",
+    soal: "Bacalah argumen berikut!\n\"Manajemen unit layanan publik menyimpulkan bahwa penghapusan seluruh loket tatap muka dan penggantiannya dengan chatbot AI otomatis akan langsung menaikkan indeks kepuasan masyarakat kecamatan sebesar 30% karena waktu respons rata-rata turun dari 15 menit menjadi 10 detik.\"\nPernyataan manakah yang PALING MEMPERLEMAH kesimpulan manajemen tersebut?",
+    opsi: [
+      "Biaya langganan perangkat lunak chatbot AI tersebut lebih rendah dibandingkan biaya pembelian perangkat cetak nomor antrean.",
+      "Lebih dari 65% pemohon layanan di kecamatan itu adalah warga lansia dan warga minim akses internet yang membutuhkan pendampingan petugas.",
+      "Beberapa kementerian di ibu kota negara telah lebih dahulu menggunakan chatbot AI untuk menjawab pertanyaan umum mengenai jam buka.",
+      "Petugas loket yang sebelumnya bertugas melayani warga tatap muka telah mengikuti pelatihan singkat mengenai arsip digital kantor.",
+      "Kecepatan tanggapan awal di bawah satu menit memang menjadi salah satu indikator teknis pada sistem pemantauan server internal."
+    ],
+    kunci: 1,
+    pembahasan: "Argumen berasumsi bahwa respons cepat lewat chatbot otomatis menaikkan kepuasan seluruh warga. Jika >65% pengguna justru lansia/minim akses internet yang butuh loket tatap muka, maka penghapusan seluruh loket tatap muka akan menyulitkan mayoritas pemohon dan berpotensi menurunkan kepuasan masyarakat. Trik cepat: cari fakta yang langsung mematahkan asumsi tersembunyi penulis.",
+    tingkat: 3, verified: true
+  },
+  {
+    id: "TIU-117", subtes: "TIU", topik: "Figural", era: "prediksi2027", dibuat: "2026-11-21", tipe: "Matriks Figural 3×3",
+    soal: "Perhatikan matriks figural 3×3 di atas! Pada setiap baris, bentuk bangun luar, warna isian bangun, dan jumlah titik di dalam bangun mengikuti aturan konsisten dari Kolom 1 ke Kolom 3. Gambar manakah yang paling tepat untuk mengisi petak B3·K3 (?)?",
+    opsi: [
+      "Persegi berlatar biru dengan 4 titik di dalamnya",
+      "Persegi berlatar putih dengan 4 titik di dalamnya",
+      "Persegi berlatar putih dengan 3 titik di dalamnya",
+      "Lingkaran berlatar putih dengan 4 titik di dalamnya",
+      "Segitiga berlatar hitam dengan 4 titik di dalamnya"
+    ],
+    kunci: 1,
+    pembahasan: "Pecah 3 atribut per baris:\n1) Bentuk luar (aturan Latin square — setiap baris wajib memuat ○, □, △ masing-masing satu): Baris 3 sudah punya △ dan ○ → B3·K3 wajib PERSEGI (□).\n2) Warna isian (setiap baris wajib memuat Putih, Biru, Hitam masing-masing satu): Baris 3 sudah punya Biru dan Hitam → B3·K3 wajib PUTIH (kosong).\n3) Jumlah titik: Kolom 3 = Kolom 1 + Kolom 2 (Baris 1: 1+2=3; Baris 2: 2+3=5; Baris 3: 1+3=4 titik).\nJadi B3·K3 adalah Persegi berlatar putih dengan 4 titik di dalamnya.",
+    tingkat: 3, verified: true
+  },
+  {
+    id: "TIU-118", subtes: "TIU", topik: "Figural", era: "prediksi2027", dibuat: "2026-11-21", tipe: "Jaring-Jaring Kubus 3D",
+    soal: "Perhatikan gambar jaring-jaring kubus model tangga (6 sisi bersimbol) di atas! Apabila jaring-jaring 2D tersebut dilipat menjadi kubus 3D utuh, simbol apakah yang berada tepat pada sisi BERSEBERANGAN dengan sisi bersimbol Bintang (★) dan sisi bersimbol Lingkaran (●) berturut-turut?",
+    opsi: [
+      "Segitiga (▲) dan Garis Sama Dengan (=)",
+      "Belah Ketupat (◆) dan Silang (✕)",
+      "Silang (✕) dan Belah Ketupat (◆)",
+      "Silang (✕) dan Garis Sama Dengan (=)",
+      "Segitiga (▲) dan Belah Ketupat (◆)"
+    ],
+    kunci: 2,
+    pembahasan: "Tetapkan Segitiga (▲) sebagai alas bawah:\n• Lingkaran (●) di atas ▲ terlipat menjadi dinding BELAKANG; Bintang (★) di kiri ● terlipat menjadi dinding KIRI.\n• Silang (✕) di kanan ▲ terlipat menjadi dinding KANAN; Belah Ketupat (◆) di bawah ✕ terlipat menjadi dinding DEPAN; Garis (=) di kanan ◆ menutup sisi ATAS.\nPasangan sisi berseberangan: Kiri (★) ↔ Kanan (✕); Belakang (●) ↔ Depan (◆); Bawah (▲) ↔ Atas (=). Trik cepat jaring tangga 2-2-2: pasangan berseberangan selalu berjarak pola huruf 'Z' / langkah kuda (2 petak × 1 petak).",
+    tingkat: 3, verified: true
+  },
+  {
+    id: "TIU-119", subtes: "TIU", topik: "Numerik", era: "prediksi2027", dibuat: "2026-11-21", tipe: "Deret Huruf & Pecahan Dua Larik",
+    soal: "Perhatikan deret kombinasi huruf dan pecahan dua larik berikut:\nC, 1/2, F, 3/4, J, 9/8, O, 27/16, ..., ...\nPasangan huruf dan pecahan yang tepat untuk melanjutkan kedua titik-titik tersebut secara berurutan adalah ....",
+    opsi: [
+      "T dan 81/32",
+      "U dan 54/32",
+      "V dan 81/32",
+      "U dan 81/32",
+      "U dan 81/24"
+    ],
+    kunci: 3,
+    pembahasan: "Pisahkan menjadi 2 larik bergantian:\n• Larik Ganjil (huruf): C(3), F(6), J(10), O(15), ... → selisih bertingkat +3, +4, +5, maka langkah berikutnya +6 → 15 + 6 = 21 = huruf U.\n• Larik Genap (pecahan): 1/2, 3/4, 9/8, 27/16, ... → setiap suku dikali 3/2 (pembilang ×3: 27×3=81; penyebut ×2: 16×2=32) → 81/32.\nCek ulang: U = huruf ke-21 (O=15, P=16, Q=17, R=18, S=19, T=20, U=21) dan (27/16)×(3/2)=81/32.",
+    tingkat: 3, verified: true
+  },
+  {
+    id: "TKP-145", subtes: "TKP", topik: "Pelayanan Publik", era: "prediksi2027", dibuat: "2026-11-21", tipe: "Service Recovery Gangguan Sistem",
+    soal: "Pada jam layanan puncak di loket administrasi kependudukan, mesin antrean elektronik mendadak eror sehingga puluhan warga yang sudah menunggu mulai berkerumun dan melayangkan protes dengan nada tinggi. Sebagai petugas garda depan di ruang layanan, sikap Anda adalah ....",
+    opsi: [
+      "Menutup loket sementara sampai teknisi selesai memperbaiki server agar tidak terjadi keributan dengan warga.",
+      "Tetap tenang, memohon maaf terbuka, mengaktifkan daftar antrean manual sesuai SOP darurat, dan mengumumkan estimasi layanan.",
+      "Meminta petugas keamanan mengusir warga yang bersuara keras keluar ruangan agar suasana ruang tunggu kembali sepi.",
+      "Menjelaskan bahwa kerusakan mesin merupakan tanggung jawab vendor aplikasi sehingga loket tidak bisa berbuat banyak.",
+      "Melayani warga yang berdiri paling depan tanpa daftar urut agar antrean yang berkerumun tampak cepat berkurang."
+    ],
+    skor: [3, 5, 1, 2, 4],
+    pembahasan: "Service recovery pelayanan publik saat gangguan teknis menuntut ketenangan, empati, transparansi estimasi waktu, dan keberlanjutan layanan melalui prosedur kontingensi manual yang adil dan tertib (tidak menghentikan layanan sepihak dan tidak mengabaikan keadilan urutan).",
+    tingkat: 3, verified: true
+  },
+  {
+    id: "TKP-146", subtes: "TKP", topik: "Pelayanan Publik", era: "prediksi2027", dibuat: "2026-11-21", tipe: "Service Recovery Kelompok Rentan",
+    soal: "Seorang warga lanjut usia datang jauh dari desa pegunungan untuk mengurus pembaruan data jaminan kesehatan, tetapi kamera pemindai wajah pada kios layanan mandiri gagal memverifikasi datanya berulang kali. Tindakan yang paling mencerminkan pelayanan inklusif adalah ....",
+    opsi: [
+      "Meminta warga tersebut pulang terlebih dahulu dan mencoba kembali keesokan hari setelah pembaruan perangkat lunak selesai.",
+      "Mempersilakan warga tersebut ke loket bantu prioritas, mendampingi verifikasi alternatif sesuai SOP, dan melaporkan kendala ke tim TI.",
+      "Menyarankan warga tersebut mencari anggota keluarga yang lebih muda untuk mengulang pemindaian wajah di kios mandiri.",
+      "Mengabaikan verifikasi identitas dan langsung mencetak dokumen agar warga lansia tersebut tidak perlu menunggu lama.",
+      "Memberikan brosur panduan penggunaan kios mandiri lalu meminta warga tersebut terus mencoba hingga sistem berhasil."
+    ],
+    skor: [2, 5, 3, 1, 4],
+    pembahasan: "Pelayanan publik inklusif bagi kelompok rentan (lansia/disabilitas) mengutamakan bantuan prioritas langsung dengan tetap mematuhi SOP verifikasi alternatif resmi — tidak menolak warga, namun juga tidak melanggar prosedur keamanan identitas.",
+    tingkat: 2, verified: true
+  },
+  {
+    id: "TKP-147", subtes: "TKP", topik: "TIK", era: "prediksi2027", dibuat: "2026-11-21", tipe: "AI Generatif & UU PDP",
+    soal: "Menjelang tenggat penyusunan laporan evaluasi penerima bantuan, seorang rekan tim menyarankan agar seluruh tabel Excel berisi nama lengkap, NIK, dan alamat warga ditempelkan ke layanan chatbot AI publik gratis supaya ringkasannya selesai dalam dua menit. Sikap Anda adalah ....",
+    opsi: [
+      "Menyetujui saran tersebut karena tenggat laporan sangat mendesak dan hasilnya nanti bisa langsung dihapus dari riwayat chat.",
+      "Menolak pengunggahan data pribadi ke AI publik sesuai UU PDP, lalu menawarkan pengolahan memakai perangkat internal atau data teranonimisasi.",
+      "Mengunggah separuh data warga saja ke layanan AI publik agar risiko kebocoran informasi pribadi menjadi lebih kecil.",
+      "Membiarkan rekan tersebut mengunggah data atas namanya sendiri asalkan akun kerja pribadi Anda tidak ikut dipakai.",
+      "Menolak seluruh penggunaan teknologi otomasi di kantor dan meminta tim menghitung seluruh statistik secara manual di kertas."
+    ],
+    skor: [1, 5, 2, 3, 4],
+    pembahasan: "Literasi TIK ASN dan kepatuhan UU No. 27 Tahun 2022 (UU PDP) melarang pengiriman data pribadi warga ke layanan AI publik eksternal. Sikap optimal tetap adaptif terhadap teknologi namun aman: pakai perangkat internal resmi atau lakukan anonimisasi data terlebih dahulu.",
+    tingkat: 3, verified: true
+  },
+  {
+    id: "TKP-148", subtes: "TKP", topik: "TIK", era: "prediksi2027", dibuat: "2026-11-21", tipe: "Validasi Halusinasi AI & SPBE",
+    soal: "Saat memanfaatkan asisten AI internal kantor untuk menyusun draf naskah kajian kebijakan publik, Anda menemukan bahwa AI mencantumkan nomor pasal peraturan menteri yang setelah dicek ternyata tidak pernah ada (halusinasi AI). Langkah profesional yang Anda lakukan adalah ....",
+    opsi: [
+      "Tetap mencantumkan nomor pasal tersebut karena draf hanya ditujukan untuk rapat pembahasan internal tingkat bidang.",
+      "Memverifikasi ulang seluruh rujukan hukum pada portal resmi JDIH, memperbaiki draf, dan menambahkan daftar periksa validasi tim.",
+      "Menghapus seluruh dasar hukum dari draf kajian agar tidak perlu memeriksa satu per satu peraturan yang dikutip AI.",
+      "Berhenti menggunakan alat bantu digital kantor sepenuhnya dan meminta pimpinan mencabut izin akses asisten AI tim.",
+      "Memperbaiki satu pasal yang keliru tersebut saja tanpa mengecek kemungkinan kesalahan kutipan pasal lain di dalam draf."
+    ],
+    skor: [1, 5, 2, 3, 4],
+    pembahasan: "Pemanfaatan AI dalam birokrasi (SPBE) menuntut prinsip human-in-the-loop: pegawai tetap bertanggung jawab penuh atas akurasi substansi. Verifikasi menyeluruh ke sumber otoritatif (JDIH) disertai daftar periksa pencegahan tim menunjukkan kompetensi digital dan akuntabilitas tinggi.",
+    tingkat: 3, verified: true
+  },
+  {
+    id: "TKP-149", subtes: "TKP", topik: "Profesionalisme", era: "prediksi2027", dibuat: "2026-11-21", tipe: "Netralitas ASN Pemilu/Pilkada",
+    soal: "Kerabat dekat Anda yang mencalonkan diri dalam pemilihan kepala daerah mengundang Anda menghadiri acara syukuran keluarga yang ternyata dirangkaikan dengan deklarasi dukungan serta sesi foto mengenakan atribut simbol pasangan calon. Sebagai ASN, sikap tegas yang Anda ambil adalah ....",
+    opsi: [
+      "Tetap ikut berfoto memakai atribut pasangan calon asal tidak mengunggah foto tersebut ke akun media sosial pribadi Anda.",
+      "Menolak secara sopan dan tegas dengan menjelaskan kewajiban netralitas ASN berdasarkan UU ASN serta tidak ikut kegiatan deklarasi.",
+      "Datang menghadiri sesi deklarasi dengan mengenakan pakaian bebas tanpa atribut sambil duduk di barisan kursi paling belakang.",
+      "Mengirimkan pesan dukungan resmi melalui grup percakapan lingkungan RT sebagai bentuk bakti keluarga meski tidak hadir.",
+      "Hadir sebentar pada sesi makan keluarga sebelum acara deklarasi dimulai, lalu berpamitan pulang lebih awal tanpa berfoto."
+    ],
+    skor: [1, 5, 3, 2, 4],
+    pembahasan: "UU No. 20 Tahun 2023 tentang ASN mewajibkan setiap ASN menjaga netralitas dari pengaruh partai politik/kontestasi pemilu, termasuk saat sedang cuti maupun di acara keluarga yang bermuatan kampanye. Penolakan yang sopan, tegas, dan berdasar aturan mencerminkan profesionalisme tertinggi.",
+    tingkat: 3, verified: true
+  },
+  {
+    id: "TKP-150", subtes: "TKP", topik: "Profesionalisme", era: "prediksi2027", dibuat: "2026-11-21", tipe: "Integritas & Tekanan Atasan",
+    soal: "Atasan langsung meminta Anda menandatangani berita acara kelengkapan dokumen pencairan proyek milik seorang rekanan meskipun bukti pelunasan pajak daerah yang menjadi syarat wajib belum dilampirkan, dengan alasan serapan anggaran akhir tahun harus segera dicapai. Sikap Anda adalah ....",
+    opsi: [
+      "Langsung menandatangani berita acara tersebut demi menunjukkan loyalitas penuh terhadap target serapan pimpinan unit.",
+      "Menolak secara sopan dengan menunjukkan dasar aturan audit, meminta rekanan melengkapi berkas resmi, dan mencatat hasil verifikasi.",
+      "Menandatangani dokumen dengan syarat rekanan berjanji secara lisan akan menyusulkan bukti pajak pada pekan berikutnya.",
+      "Menghindari atasan selama beberapa hari dan menyerahkan berkas verifikasi kepada staf baru agar ia yang menandatangani.",
+      "Menolak permintaan atasan sambil menyampaikan keberatan secara emosional di hadapan seluruh rekanan yang sedang menunggu."
+    ],
+    skor: [1, 5, 2, 3, 4],
+    pembahasan: "Loyalitas ASN dalam core values BerAKHLAK adalah loyal kepada peraturan perundang-undangan dan negara, bukan perintah yang melanggar aturan audit. Penolakan profesional berbasis regulasi disertai solusi agar rekanan melengkapi berkas resmi menjaga integritas dan etika komunikasi.",
+    tingkat: 3, verified: true
+  },
+  {
+    id: "TKP-151", subtes: "TKP", topik: "Jejaring Kerja", era: "prediksi2027", dibuat: "2026-11-21", tipe: "Kolaborasi Lintas Instansi",
+    soal: "Dalam tim terpadu percepatan penurunan stunting yang melibatkan Dinas Kesehatan, Dinas Sosial, dan perangkat desa, terjadi perbedaan format pencatatan data balita sehingga antarpihak saling menyalahkan karena laporan bulanan terlambat. Sebagai perwakilan instansi di tim tersebut, peran Anda adalah ....",
+    opsi: [
+      "Menyampaikan laporan versi instansi Anda sendiri secara terpisah agar kinerja unit Anda tetap dinilai tepat waktu.",
+      "Memfasilitasi rapat penyelarasan satu format data baku lintas instansi serta menyepakati pembagian peran validasi yang adil.",
+      "Menunggu dinas yang memiliki anggaran terbesar mengambil alih perbaikan seluruh basis data tanpa ikut campur.",
+      "Meminta pimpinan membubarkan tim terpadu tersebut karena koordinasi lintas sektor terbukti memperlambat pekerjaan rutin.",
+      "Mengusulkan lampiran catatan konversi data sementara untuk bulan ini sembari menyusun format baku pada rapat bulan depan."
+    ],
+    skor: [3, 5, 2, 1, 4],
+    pembahasan: "Kolaborasi lintas instansi (jejaring kerja) menuntut inisiatif membangun standar kerja bersama tanpa ego sektoral. Memfasilitasi penyelarasan format baku dan pembagian tugas validasi yang setara menyelesaikan akar masalah keterlambatan secara berkelanjutan.",
+    tingkat: 2, verified: true
+  },
+  {
+    id: "TKP-152", subtes: "TKP", topik: "Sosial Budaya", era: "prediksi2027", dibuat: "2026-11-21", tipe: "Adaptasi & Inklusi Multikultural",
+    soal: "Anda baru dipindahtugaskan ke wilayah kabupaten dengan keragaman adat yang kuat, di mana warga terbiasa membuka forum musyawarah dengan tata krama bahasa daerah halus sebelum membahas materi teknis. Saat diminta memimpin sosialisasi program pelayanan baru, langkah Anda adalah ....",
+    opsi: [
+      "Langsung memaparkan materi teknis dengan gaya cepat dan kaku karena agenda rapat dinas harus selesai tepat waktu.",
+      "Mempelajari tata krama pembuka dan sapaan setempat, menghormati tokoh adat, serta menyampaikan materi dengan bahasa inklusif.",
+      "Menyerahkan seluruh pemaparan program kepada staf lokal lalu duduk diam tanpa berinteraksi langsung dengan masyarakat.",
+      "Meminta panitia meniadakan sambutan adat karena menganggap seluruh acara resmi pemerintah cukup mengikuti protokol standar.",
+      "Menggunakan istilah teknis birokrasi berbahasa asing agar masyarakat melihat profesionalitas aparatur yang baru ditempatkan."
+    ],
+    skor: [2, 5, 4, 1, 3],
+    pembahasan: "Kompetensi sosial budaya ASN menuntut kemampuan beradaptasi dan menghormati kearifan lokal sebagai jembatan kepercayaan publik, tanpa mengurangi kejelasan substansi program yang disampaikan secara inklusif.",
+    tingkat: 2, verified: true
+  },
+  {
+    id: "TKP-153", subtes: "TKP", topik: "Anti-Radikalisme", era: "prediksi2027", dibuat: "2026-11-21", tipe: "Anti-Radikalisme Digital & Disinformasi",
+    soal: "Di sebuah forum daring alumni pelatihan pegawai, seorang peserta secara konsisten mengunggah artikel yang menyebut ideologi Pancasila bertentangan dengan nilai keagamaan dan mengajak anggota forum tidak mematuhi regulasi negara. Sikap Anda yang paling tepat adalah ....",
+    opsi: [
+      "Membagikan ulang tautan artikel tersebut ke grup lain sekadar untuk menanyakan pendapat rekan kerja tanpa klarifikasi.",
+      "Menanggapi secara tenang berbasis wawasan kebangsaan yang inklusif, mengingatkan kode etik ASN, dan melaporkannya lewat kanal resmi.",
+      "Membalas unggahan dengan ujaran penghinaan pribadi agar pengunggah merasa malu dan segera meninggalkan forum daring.",
+      "Menonaktifkan notifikasi forum daring tersebut agar tidak terganggu tanpa melakukan upaya pelurusan atau pelaporan apa pun.",
+      "Mengubah topik pembicaraan forum ke pembahasan olahraga tanpa menegur atau menindaklanjuti konten yang menyimpang tersebut."
+    ],
+    skor: [1, 5, 2, 3, 4],
+    pembahasan: "Penangkalan radikalisme digital menuntut ketegasan yang terukur dan bermartabat: meluruskan narasi ekstrem dengan argumen kebangsaan inklusif (moderasi), mengingatkan kesetiaan ASN pada Pancasila/UUD 1945, serta melaporkannya melalui mekanisme pengawasan resmi tanpa terpancing ujaran kebencian.",
+    tingkat: 3, verified: true
   }
 ];

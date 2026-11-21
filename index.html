@@ -940,7 +940,7 @@ function matchesEra(q, era) {
   return questionEraInfo(q).key === era;
 }
 function bankCount(subtes, topik, era) {
-  return QLIST.filter(q => (!subtes || q.subtes === subtes) && (!topik || q.topik === topik) && matchesEra(q, era)).length;
+  return QLIST.filter(q => !q.retired && (!subtes || q.subtes === subtes) && (!topik || q.topik === topik) && matchesEra(q, era)).length;
 }
 
 function validateQuestion(o, existing) {
@@ -1129,7 +1129,7 @@ function pickQuestions(o) {
   const avoidMap = o.avoidMap || recentUserAvoidMap(o.user || activeUser(), 3);
   avoid.forEach(id => { if (!avoidMap[id] || avoidMap[id] < 24) avoidMap[id] = 24; });
   const now = Date.now(), h24 = 86400000;
-  let list = shuffle(QLIST.filter(q => (!o.subtes || q.subtes === o.subtes) && (!o.topik || q.topik === o.topik) && matchesEra(q, o.era) && ex.indexOf(q.id) < 0 && (!o.maxLevel || q.tingkat <= o.maxLevel)));
+  let list = shuffle(QLIST.filter(q => !q.retired && (!o.subtes || q.subtes === o.subtes) && (!o.topik || q.topik === o.topik) && matchesEra(q, o.era) && ex.indexOf(q.id) < 0 && (!o.maxLevel || q.tingkat <= o.maxLevel)));
   const predBonusMap = {};
   if (o.predictive) {
     cpnsPredictionReport(o.user).forEach(r => { predBonusMap[r.subtes + '|' + r.topik] = r.priorityScore; });
@@ -1155,7 +1155,7 @@ function pickSimQuestions(subtes, n, user) {
     const quota = quotas[t];
     if (!(quota > 0)) return;
     // Seimbangkan komposisi tingkat kesulitan (~25% L1 dasar, ~50% L2 aplikasi, ~25% L3 HOTS) bila stok mencukupi
-    const poolTopik = QLIST.filter(q => q.subtes === subtes && q.topik === t && chosen.indexOf(q.id) < 0);
+    const poolTopik = QLIST.filter(q => !q.retired && q.subtes === subtes && q.topik === t && chosen.indexOf(q.id) < 0);
     if (poolTopik.length >= quota * 2 && quota >= 4) {
       const nHots = Math.max(1, Math.round(quota * 0.25));
       const hotsPicked = pickQuestions({ subtes, topik: t, n: nHots, exclude: chosen, avoidMap, user }).filter(id => {
@@ -2043,6 +2043,53 @@ function figuralSVG(q) {
         '<span class="muted">→</span>' +
         qBox('Gambar 5 ?')
       );
+    case 'TIU-117': {
+      const cell3x3 = (shape, fillKind, dots) => {
+        const fill = fillKind === 'white' ? 'none' : fillKind === 'blue' ? 'rgba(56,189,248,.32)' : 'currentColor';
+        const dotCol = fillKind === 'black' ? 'var(--bg)' : 'var(--amber)';
+        let sh = '';
+        if (shape === 'circle') sh = '<circle cx="36" cy="36" r="24" fill="' + fill + '" stroke="currentColor" stroke-width="2.2"/>';
+        else if (shape === 'square') sh = '<rect x="13" y="13" width="46" height="46" rx="4" fill="' + fill + '" stroke="currentColor" stroke-width="2.2"/>';
+        else sh = '<polygon points="36,11 60,57 12,57" fill="' + fill + '" stroke="currentColor" stroke-width="2.2"/>';
+        const posMap = {
+          1: [[36, 38]],
+          2: [[28, 38], [44, 38]],
+          3: [[36, 29], [28, 43], [44, 43]],
+          4: [[29, 31], [43, 31], [29, 44], [43, 44]],
+          5: [[27, 29], [45, 29], [36, 37], [27, 46], [45, 46]]
+        };
+        const ds = (posMap[dots] || []).map(p => '<circle cx="' + p[0] + '" cy="' + p[1] + '" r="3.4" fill="' + dotCol + '"/>').join('');
+        return '<svg width="64" height="64" viewBox="0 0 72 72">' + sh + ds + '</svg>';
+      };
+      return wrap('Matriks Figural 3×3: Amati Pola Bentuk, Warna Isian, & Jumlah Titik Tiap Baris',
+        '<div style="display:grid;grid-template-columns:repeat(3,auto);gap:8px;align-items:center">' +
+          box('B1·K1', cell3x3('circle', 'white', 1)) + box('B1·K2', cell3x3('square', 'blue', 2)) + box('B1·K3', cell3x3('tri', 'black', 3)) +
+          box('B2·K1', cell3x3('square', 'black', 2)) + box('B2·K2', cell3x3('tri', 'white', 3)) + box('B2·K3', cell3x3('circle', 'blue', 5)) +
+          box('B3·K1', cell3x3('tri', 'blue', 1)) + box('B3·K2', cell3x3('circle', 'black', 3)) + qBox('B3·K3 ?') +
+        '</div>'
+      );
+    }
+    case 'TIU-118':
+      return wrap('Spasial 3D: Jaring-Jaring Kubus Model Tangga (6 Sisi Bersimbol)',
+        box('Jaring-Jaring 2D (Tangga)', '<svg width="186" height="132" viewBox="0 0 186 132">' +
+          '<rect x="12" y="10" width="38" height="36" fill="rgba(245,185,66,.12)" stroke="var(--amber)" stroke-width="2"/><polygon points="' + starPts(31, 28, 9, 3.8) + '" fill="var(--amber)"/>' +
+          '<rect x="50" y="10" width="38" height="36" fill="rgba(56,189,248,.12)" stroke="var(--tiu)" stroke-width="2"/><circle cx="69" cy="28" r="8" fill="var(--tiu)"/>' +
+          '<rect x="50" y="46" width="38" height="36" fill="none" stroke="currentColor" stroke-width="2"/><polygon points="69,54 79,72 59,72" fill="none" stroke="currentColor" stroke-width="2.2"/>' +
+          '<rect x="88" y="46" width="38" height="36" fill="none" stroke="currentColor" stroke-width="2"/><path d="M99,56 L115,72 M115,56 L99,72" stroke="var(--teal)" stroke-width="2.8" stroke-linecap="round"/>' +
+          '<rect x="88" y="82" width="38" height="36" fill="none" stroke="currentColor" stroke-width="2"/><polygon points="107,89 116,100 107,111 98,100" fill="none" stroke="var(--amber)" stroke-width="2.2"/>' +
+          '<rect x="126" y="82" width="38" height="36" fill="none" stroke="currentColor" stroke-width="2"/><path d="M137,96 L153,96 M137,104 L153,104" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/>' +
+        '</svg>') +
+        '<span class="big muted">⇒</span>' +
+        box('Kubus 3D (Sisi Berhadapan)', '<svg width="128" height="128" viewBox="0 0 120 120">' +
+          '<polygon points="60,16 100,36 60,56 20,36" fill="rgba(56,189,248,.14)" stroke="var(--tiu)" stroke-width="2"/>' +
+          '<polygon points="20,36 60,56 60,96 20,76" fill="rgba(245,185,66,.12)" stroke="var(--amber)" stroke-width="2"/>' +
+          '<polygon points="100,36 60,56 60,96 100,76" fill="none" stroke="currentColor" stroke-width="2"/>' +
+          '<text x="60" y="40" text-anchor="middle" font-size="13" font-weight="800" fill="var(--tiu)">?</text>' +
+          '<text x="40" y="70" text-anchor="middle" font-size="13" font-weight="800" fill="var(--amber)">?</text>' +
+          '<text x="80" y="70" text-anchor="middle" font-size="13" font-weight="800" fill="currentColor">?</text>' +
+          '<text x="60" y="112" text-anchor="middle" font-size="9" font-weight="800" fill="var(--muted)">Lawan ★ &amp; ● = ?</text>' +
+        '</svg>')
+      );
     default:
       return '';
   }
@@ -2751,6 +2798,26 @@ function mathLogicVisualSVG(q) {
               '<div class="tiny muted" style="font-weight:800">' + x[0] + '</div><strong style="color:' + (i === 4 ? 'var(--amber)' : 'currentColor') + '">' + x[1] + '</strong></div>'
           ).join('') +
         '</div>');
+    case 'TIU-113':
+      return wrap('Skema Uji Kecukupan Data: Target "Apakah x > y?" (x, y Bilangan Bulat)',
+        '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;text-align:center">' +
+          '<div style="background:var(--bg2);border:1.5px solid var(--tiu);border-radius:10px;padding:10px"><div class="tiny" style="color:var(--tiu);font-weight:800">UJI PERNYATAAN (1) SAJA</div><div style="font-weight:800;margin-top:4px">x − y = 7</div><div class="tiny muted" style="margin-top:3px">Cukup tunggal? (?)</div></div>' +
+          '<div style="background:var(--bg2);border:1.5px solid var(--teal);border-radius:10px;padding:10px"><div class="tiny" style="color:var(--teal);font-weight:800">UJI PERNYATAAN (2) SAJA</div><div style="font-weight:800;margin-top:4px">x² &gt; y²</div><div class="tiny muted" style="margin-top:3px">Uji + vs − : cukup? (?)</div></div>' +
+          '<div style="background:var(--amber-soft);border:1.5px dashed var(--amber);border-radius:10px;padding:10px"><div class="tiny" style="color:var(--amber);font-weight:800">KEPUTUSAN DATA</div><div style="font-weight:800;color:var(--amber);margin-top:4px">(1), (2), Bersama, atau Kurang?</div></div>' +
+        '</div>');
+    case 'TIU-114':
+      return wrap('Sketsa Kecukupan Data Luas Ruang Rapat Persegi Panjang (p, l > 0)',
+        '<div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:center">' +
+          '<svg width="210" height="118" viewBox="0 0 210 118" style="max-width:100%">' +
+            '<rect x="34" y="26" width="142" height="68" rx="4" fill="rgba(56,189,248,.14)" stroke="var(--tiu)" stroke-width="2.2"/>' +
+            '<text x="105" y="19" text-anchor="middle" font-size="11" font-weight="800" fill="var(--tiu)">p = ? meter</text>' +
+            '<text x="24" y="64" text-anchor="end" font-size="11" font-weight="800" fill="var(--teal)">l = ?</text>' +
+            '<text x="105" y="64" text-anchor="middle" font-size="12" font-weight="800" fill="var(--amber)">Luas = p × l = ? m²</text>' +
+            '<text x="105" y="110" text-anchor="middle" font-size="9.5" fill="var(--muted)">Uji (1) K=36 m dan (2) p = l + 4</text>' +
+          '</svg>' +
+        '</div>');
+    case 'TIU-119':
+      return seqDiagram('Visualisasi Deret Campuran Huruf & Pecahan (2 Larik)', ['C', '1/2', 'F', '3/4', 'J', '9/8', 'O', '27/16', '?', '?'], true);
     default:
       return '';
   }
@@ -2777,6 +2844,20 @@ function formatStemHTML(q) {
       '<thead><tr style="background:rgba(56,189,248,.12)"><th style="width:50%;text-align:center;color:var(--tiu);font-size:.95rem">Kuantitas X</th><th style="width:50%;text-align:center;color:var(--amber);font-size:.95rem">Kuantitas Y</th></tr></thead>' +
       '<tbody><tr><td style="text-align:center;font-weight:700;padding:14px">' + esc(xVal) + '</td><td style="text-align:center;font-weight:700;padding:14px">' + esc(yVal) + '</td></tr></tbody></table></div>' +
       '<p class="qtext" style="margin-top:8px">' + esc(outro) + '</p>';
+    return html;
+  }
+  // Deteksi format Kecukupan Data (Pernyataan (1) & (2)) ala layar CAT BKN
+  if (/Pernyataan \(1\):/i.test(raw) && /Pernyataan \(2\):/i.test(raw)) {
+    const idx1 = raw.search(/Pernyataan \(1\):/i);
+    const intro = raw.slice(0, idx1).trim();
+    const restRaw = raw.slice(idx1).trim();
+    const lines = restRaw.split('\n').map(x => x.trim()).filter(Boolean);
+    const stmtLines = lines.filter(l => /^Pernyataan \([12]\):/i.test(l));
+    const tailLines = lines.filter(l => !/^Pernyataan \([12]\):/i.test(l));
+    html += (intro ? '<p class="qtext" id="qt" style="margin-bottom:10px">' + esc(intro) + '</p>' : '') +
+      '<div style="background:var(--bg2);border-left:4px solid var(--amber);padding:10px 14px;border-radius:8px;margin:8px 0 12px">' +
+      stmtLines.map((l, i) => '<div style="padding:5px 0;' + (i === 0 ? 'border-bottom:1px dashed var(--line);' : '') + 'font-weight:600">' + esc(l) + '</div>').join('') +
+      '</div>' + (tailLines.length ? '<p class="qtext" style="margin-top:8px">' + esc(tailLines.join(' ')) + '</p>' : '');
     return html;
   }
   // Deteksi format Premis Silogisme agar tampil terstruktur seperti layar CAT BKN
@@ -3294,6 +3375,108 @@ function bindUserSwitcherHero(root) {
     };
   }
 }
+const AUTO_LOG = { loaded: false, isFile: location.protocol === 'file:', entries: [], error: false };
+function loadAutomationLog() {
+  if (AUTO_LOG.isFile || typeof fetch !== 'function') {
+    AUTO_LOG.loaded = true;
+    AUTO_LOG.error = true;
+    return;
+  }
+  fetch('automation-log.json?t=' + Date.now(), { cache: 'no-store' })
+    .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+    .then(arr => {
+      AUTO_LOG.entries = Array.isArray(arr) ? arr : [];
+      AUTO_LOG.loaded = true;
+      AUTO_LOG.error = false;
+      refreshAutoLogUI();
+    })
+    .catch(() => {
+      AUTO_LOG.loaded = true;
+      AUTO_LOG.error = true;
+      refreshAutoLogUI();
+    });
+}
+function autoLogStatusChip(st) {
+  const s = String(st || '').toUpperCase();
+  if (s === 'SUCCESS') return '<span class="chip teal">● SUCCESS</span>';
+  if (s === 'NO_OP') return '<span class="chip amber">● NO_OP</span>';
+  return '<span class="chip" style="color:var(--red);border-color:var(--red-line);background:var(--red-soft)">● ' + esc(s || 'UNKNOWN') + '</span>';
+}
+function autoLogActiveDays7(entries) {
+  const t = today();
+  const activeDates = new Set();
+  const minDate = addDays(t, -6);
+  (entries || []).forEach(e => {
+    if (e && e.date >= minDate && e.date <= t && (e.status === 'SUCCESS' || e.status === 'NO_OP')) {
+      activeDates.add(e.date);
+    }
+  });
+  return activeDates.size;
+}
+function autoLogHeroHTML() {
+  const newCount = QLIST.filter(q => !q.retired && !!q.dibuat).length;
+  const activeTotal = QLIST.filter(q => !q.retired).length;
+  if (AUTO_LOG.isFile || (AUTO_LOG.loaded && AUTO_LOG.error && !AUTO_LOG.entries.length)) {
+    return '<section class="card" id="autoLogHeroCard" style="margin-bottom:16px;padding:13px 16px;border-left:4px solid var(--teal)">' +
+      '<div class="row between" style="gap:10px;flex-wrap:wrap;align-items:center">' +
+        '<div style="flex:1;min-width:220px">' +
+          '<div class="row" style="gap:8px;align-items:center;flex-wrap:wrap">' +
+            '<strong style="font-size:.96rem">🆕 Update Terbaru Bank Soal</strong>' +
+            '<span class="chip amber">+' + newCount + ' soal batch baru</span>' +
+            '<span class="chip">' + activeTotal + ' soal aktif</span>' +
+          '</div>' +
+          '<div class="tiny muted" style="margin-top:5px">Log riwayat automasi hanya tampil di versi online (GitHub Pages).</div>' +
+        '</div>' +
+        '<a class="btn sm teal" href="#/latihan/batch_baru">' + ic('play', 'sm') + ' Latihan Soal Baru</a>' +
+      '</div>' +
+    '</section>';
+  }
+  if (!AUTO_LOG.loaded) {
+    return '<section class="card" id="autoLogHeroCard" style="margin-bottom:16px;padding:12px 16px;border-left:4px solid var(--teal)"><div class="small muted">Memuat status update otomatis bank soal…</div></section>';
+  }
+  const latest = AUTO_LOG.entries[0] || null;
+  const latestAdded = AUTO_LOG.entries.find(e => Array.isArray(e.added) && e.added.length > 0) || latest;
+  const addedN = latestAdded && Array.isArray(latestAdded.added) ? latestAdded.added.length : 0;
+  const active7 = autoLogActiveDays7(AUTO_LOG.entries);
+  return '<section class="card" id="autoLogHeroCard" style="margin-bottom:16px;padding:13px 16px;border-left:4px solid var(--teal)">' +
+    '<div class="row between" style="gap:10px;flex-wrap:wrap;align-items:center">' +
+      '<div style="flex:1;min-width:240px">' +
+        '<div class="row" style="gap:7px;align-items:center;flex-wrap:wrap">' +
+          '<strong style="font-size:.96rem">🆕 Update Terbaru Bank Soal</strong>' +
+          (latest ? '<span class="chip">' + esc(fmtDate(latest.date)) + '</span>' + autoLogStatusChip(latest.status) : '') +
+          '<span class="chip amber">+' + (addedN || newCount) + ' soal baru</span>' +
+        '</div>' +
+        '<div class="tiny muted" style="margin-top:6px">Automasi aktif <strong style="color:var(--text)">' + active7 + ' dari 7 hari terakhir</strong> · Total bank: <strong>' + activeTotal + ' soal</strong>' + (latest && latest.notes ? ' · ' + esc(latest.notes) : '') + '</div>' +
+      '</div>' +
+      '<a class="btn sm teal" href="#/latihan/batch_baru">' + ic('play', 'sm') + ' Latihan Soal Baru</a>' +
+    '</div>' +
+  '</section>';
+}
+function autoLogSettingsHTML() {
+  if (AUTO_LOG.isFile || (AUTO_LOG.loaded && AUTO_LOG.error && !AUTO_LOG.entries.length)) {
+    return '<p class="small muted">Log riwayat automasi (<code>automation-log.json</code>) hanya tampil di versi online (GitHub Pages).</p>';
+  }
+  if (!AUTO_LOG.loaded) return '<p class="small muted">Memuat riwayat update otomatis…</p>';
+  if (!AUTO_LOG.entries.length) return '<p class="small muted">Belum ada catatan update otomatis.</p>';
+  const active7 = autoLogActiveDays7(AUTO_LOG.entries);
+  return '<p class="small muted" style="margin-top:0">Automasi aktif <strong>' + active7 + ' dari 7 hari terakhir</strong> · Menampilkan ' + AUTO_LOG.entries.length + ' entri terbaru.</p>' +
+    '<div class="tbl-wrap"><table class="tbl"><thead><tr><th>Tanggal</th><th>Slot</th><th>Status</th><th>+Soal</th><th>Total</th><th>Commit</th><th>Catatan</th></tr></thead><tbody>' +
+    AUTO_LOG.entries.slice(0, 30).map(e =>
+      '<tr><td style="white-space:nowrap">' + esc(e.date || '—') + '</td>' +
+      '<td><span class="chip">' + esc(e.slot || '—') + '</span></td>' +
+      '<td>' + autoLogStatusChip(e.status) + '</td>' +
+      '<td><strong>+' + ((e.added && e.added.length) || 0) + '</strong></td>' +
+      '<td>' + (e.totals && e.totals.all != null ? e.totals.all : '—') + '</td>' +
+      '<td><code>' + esc(e.commit || '—') + '</code></td>' +
+      '<td class="tiny">' + esc(e.notes || '—') + '</td></tr>'
+    ).join('') + '</tbody></table></div>';
+}
+function refreshAutoLogUI() {
+  const mHero = $('#autoLogHeroMount');
+  if (mHero) mHero.innerHTML = autoLogHeroHTML();
+  const mSet = $('#autoLogSettingsMount');
+  if (mSet) mSet.innerHTML = autoLogSettingsHTML();
+}
 function renderToday(v) {
   reconcileStreak();
   const S = state.settings, t = today(), hasExam = !!S.examDate, N = hasExam ? diffDays(t, S.examDate) : null;
@@ -3303,6 +3486,7 @@ function renderToday(v) {
 
   // ----- Kartu Pilih Peserta / Multi-User Switcher -----
   h += userSwitcherHeroHTML();
+  h += '<div id="autoLogHeroMount">' + autoLogHeroHTML() + '</div>';
 
   // ----- kartu rencana -----
   if (!hasExam) {
@@ -3654,6 +3838,8 @@ function blueprintCardHTML(user) {
 }
 function renderPractice(v, args) {
   args = args || [];
+  const ERA_ARGS = ['batch_baru', 'prediksi2027', 'fr_historis'];
+  const initEra = ERA_ARGS.indexOf(args[0]) >= 0 ? args[0] : '';
   const initSub = CONFIG.SUBTES.indexOf(args[0]) >= 0 ? args[0] : '';
   const initTop = args[1] ? decodeURIComponent(args[1]) : '';
   const autoStart = args[2] === 'mulai';
@@ -3671,6 +3857,7 @@ function renderPractice(v, args) {
   bindUserIdentityBox(v, 'pr');
   const sS = $('#pS', v), sT = $('#pT', v), sE = $('#pE', v), avail = $('#pAvail', v);
   if (initSub) sS.value = initSub;
+  if (initEra) sE.value = initEra;
   function fillTopics() {
     const s = sS.value, era = sE.value || null;
     sT.innerHTML = '<option value="">Semua topik</option>' + (s ? topicsOf(s).map(t => '<option value="' + esc(t) + '">' + esc(t) + ' (' + bankCount(s, t, era) + ')</option>').join('') : '');
@@ -3724,7 +3911,7 @@ function renderPractice(v, args) {
       const ident = readAndSaveUser(v, 'pr', $('#pErr', v));
       if (!ident) return;
       const s = sS.value;
-      const qids = s ? pickQuestions({ subtes: s, era: 'batch_baru', n: 22, user: ident.user }) : QLIST.filter(q => !!q.dibuat).map(q => q.id);
+      const qids = s ? pickQuestions({ subtes: s, era: 'batch_baru', n: 22, user: ident.user }) : QLIST.filter(q => !q.retired && !!q.dibuat).map(q => q.id);
       if (!qids.length) { $('#pErr', v).textContent = 'Belum ada batch harian baru untuk filter ini.'; return; }
       runPractice(v, qids, {
         user: ident.user, instansi: ident.instansi,
@@ -4411,6 +4598,7 @@ function renderSettings(v) {
     '<section class="card" style="margin-top:16px"><h2>Tema</h2><div class="field" style="max-width:260px"><label for="sTheme">Tampilan</label><select id="sTheme"><option value="dark"' + (S.theme !== 'light' ? ' selected' : '') + '>Gelap (default)</option><option value="light"' + (S.theme === 'light' ? ' selected' : '') + '>Terang</option></select></div></section>' +
     '<div class="row" style="margin-top:16px"><button class="btn primary" type="button" id="sSave">Simpan pengaturan</button><span class="err" id="sErr" role="alert"></span></div>' +
     '<section class="card" style="margin-top:16px"><h2>Data &amp; backup</h2><p class="small muted">Data tersimpan di browser ini (localStorage). Export berkala untuk berjaga-jaga.</p><div class="row"><button class="btn" type="button" id="sExp">' + ic('down', 'sm') + ' Export JSON</button><button class="btn" type="button" id="sImp">' + ic('up', 'sm') + ' Import JSON</button><button class="btn danger" type="button" id="sReset">' + ic('trash', 'sm') + ' Hapus semua data</button></div></section>' +
+    '<section class="card" style="margin-top:16px"><h2>Riwayat Update Otomatis</h2><div id="autoLogSettingsMount">' + autoLogSettingsHTML() + '</div></section>' +
     '<section class="card" style="margin-top:16px"><h2>Bank soal</h2><p class="small muted">' + QLIST.length + ' soal (' + custom + ' diimpor) · ' + ver + ' terverifikasi. Soal bawaan ditulis orisinal dan belum diverifikasi.</p>' +
     '<label for="qiText">Impor soal (tempel JSON)</label><textarea id="qiText" rows="6" spellcheck="false" placeholder="[ { &quot;id&quot;:&quot;TWK-101&quot;, &quot;subtes&quot;:&quot;TWK&quot;, ... } ]"></textarea>' +
     '<div class="row" style="margin-top:10px"><button class="btn" type="button" id="qiCheck">Validasi</button><button class="btn primary" type="button" id="qiGo" disabled>Impor</button>' + (custom ? '<button class="btn danger" type="button" id="qiClear">Hapus soal impor (' + custom + ')</button>' : '') + '</div><div id="qiOut" role="status" style="margin-top:10px"></div>' +
@@ -4612,6 +4800,7 @@ function init() {
     const rd = new FileReader(); rd.onload = () => importDataText(String(rd.result)); rd.onerror = () => toast('Gagal membaca file.'); rd.readAsText(f); e.target.value = '';
   };
   reconcileStreak(); checkBadges(); save();
+  loadAutomationLog();
   window.addEventListener('hashchange', render);
   setInterval(pomoTick, 500); pomoTick();
   render();

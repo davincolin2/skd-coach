@@ -122,7 +122,8 @@ window.MATERI = {
         { k: 'Sila 3 — Beringin', v: 'Persatuan: menempatkan kesatuan bangsa di atas kepentingan pribadi/golongan, cinta tanah air' },
         { k: 'Sila 4 — Banteng', v: 'Kerakyatan: musyawarah mufakat, menghargai pendapat, tidak memaksakan kehendak, pemilu' },
         { k: 'Sila 5 — Padi Kapas', v: 'Keadilan Sosial: hidup hemat/tidak boros, menghargai karya orang lain, gotong royong, pemerataan' },
-        { k: 'Pasal 1 Ayat (1)-(3)', v: '(1) Kesatuan & Republik · (2) Kedaulatan di tangan rakyat menurut UUD · (3) Negara Hukum' }
+        { k: 'Pasal 1 Ayat (1)-(3)', v: '(1) Kesatuan & Republik · (2) Kedaulatan di tangan rakyat menurut UUD · (3) Negara Hukum' },
+        { k: 'KUHP Nasional (UU 1/2023)', v: 'Berlaku penuh Jan 2026: dekolonisasi hukum kolonial, pemidanaan korektif-restoratif-rehabilitatif & pidana kerja sosial' }
       ],
       inti: [
         'Empat Pilar Kebangsaan: Pancasila, UUD NRI 1945, NKRI, dan Bhinneka Tunggal Ika (dari Kakawin Sutasoma karya Mpu Tantular pada masa Majapahit).',
@@ -130,14 +131,16 @@ window.MATERI = {
         'Pasal 1 UUD NRI 1945: ayat (1) Negara Kesatuan berbentuk Republik; ayat (2) Kedaulatan berada di tangan rakyat dan dilaksanakan menurut UUD; ayat (3) Negara Indonesia adalah negara hukum.',
         'Amandemen UUD 1945 dilakukan 4 kali (1999, 2000, 2001, 2002) untuk membatasi kekuasaan eksekutif, menghapus lembaga DPA, dan memperkuat checks and balances.',
         'Pasal Kunci UUD 1945: Pasal 2-3 (MPR); Pasal 6A (Presiden dipilih langsung); Pasal 7 (Masa jabatan 5 tahun, maks 2 periode); Pasal 20 (DPR pemegang kekuasaan membentuk UU); Pasal 24 (MA & MK); Pasal 28A-28J (HAM, dengan Pasal 28J sebagai kewajiban menghormati HAM orang lain); Pasal 31 (Pendidikan & anggaran min. 20%); Pasal 33 (Ekonomi kerakyatan); Pasal 34 (Fakir miskin & jaminan sosial).',
-        'Atribut Kenegaraan: Pasal 35 (Bendera Sang Merah Putih), Pasal 36 (Bahasa Indonesia), Pasal 36A (Lambang Garuda Pancasila & Bhinneka Tunggal Ika), Pasal 36B (Lagu Kebangsaan Indonesia Raya).'
+        'Atribut Kenegaraan: Pasal 35 (Bendera Sang Merah Putih), Pasal 36 (Bahasa Indonesia), Pasal 36A (Lambang Garuda Pancasila & Bhinneka Tunggal Ika), Pasal 36B (Lagu Kebangsaan Indonesia Raya).',
+        'KUHP Nasional (UU No. 1 Tahun 2023, efektif Januari 2026) menggantikan WvS kolonial dengan pendekatan keadilan korektif, restoratif, dan rehabilitatif (termasuk alternatif pidana kerja sosial & pengawasan) yang berakar pada nilai Pancasila.'
       ],
       hafal: [
         'Pasal 1 ayat (1), (2), (3) = (1) Kesatuan-Republik, (2) Kedaulatan Rakyat menurut UUD, (3) Negara Hukum',
         'Pasal 28E vs Pasal 28J = 28E kebebasan berpendapat/beragama; 28J kewajiban menghormati HAM orang lain & patuh UU',
         'Pasal 31 ayat (4) = Anggaran pendidikan minimal 20% dari APBN dan APBD',
         'Pasal 35, 36, 36A, 36B = 35 Bendera, 36 Bahasa, 36A Lambang Garuda, 36B Lagu Indonesia Raya',
-        'Beda Sila 2 vs Sila 5 = Sila 2 fokus harkat kemanusiaan/empati personal; Sila 5 fokus kesejahteraan umum/hidup hemat/hak publik'
+        'Beda Sila 2 vs Sila 5 = Sila 2 fokus harkat kemanusiaan/empati personal; Sila 5 fokus kesejahteraan umum/hidup hemat/hak publik',
+        'KUHP Nasional (UU 1/2023) = Efektif Jan 2026 · Menggeser paradigma balas dendam (retributif) ke keadilan restoratif & rehabilitatif'
       ],
       tips: [
         'JEBAKAN: Sering tertukar antara pengamalan Sila ke-2, ke-3, dan ke-5. Ingat: Sila 2 = adab & empati antarmanusia; Sila 3 = keutuhan bangsa di atas golongan; Sila 5 = keadilan ekonomi, fasilitas publik, tidak boros.',
@@ -180,21 +183,25 @@ window.MATERI = {
       jembatan: 'Analogi = Buat Kalimat Jembatan yang Spesifik! Pastikan urutan Kiri:Kanan pada soal persis sama dengan Kiri:Kanan pada opsi.',
       peta: [
         { k: 'Analogi Kata', v: 'Bangun 1 kalimat penghubung spesifik (mis. "Payung digunakan untuk melindungi dari Hujan")' },
+        { k: 'Analogi Kalimat', v: 'Petakan pola S–P–O–Konjungsi & relasi logisnya (alat-fungsi, sebab-akibat, urutan prasyarat) lalu cari kalimat setara' },
+        { k: 'Memperkuat / Melemahkan Argumen', v: 'Kunci KESIMPULAN penulis dulu; memperkuat = fakta pendukung sebab-akibat; melemahkan = bukti tandingan/pengecualian' },
         { k: 'Sinonim / Antonim', v: 'Uji nuansa positif vs negatif kata dan perhatikan awalan (in-, a-, de-, dis-, nir- = tidak/lawan)' },
         { k: 'Ide Pokok Paragraf', v: 'Cek kalimat pertama (deduktif) atau kalimat terakhir (induktif). Hindari kalimat yang cuma berisi contoh/angka' }
       ],
       inti: [
         'Sinonim & Antonim: perhatikan konotasi kata (positif/negatif) dan imbuhan serapan (mis. "anomali" = penyimpangan, "konkurensi" = persaingan, "evokasi" = penggugah rasa, "tendensi" = kecenderungan).',
-        'Analogi Verbal: temukan hubungan logis paling spesifik antara pasangan kata pertama (sebab-akibat, alat-fungsi, bagian-utuh, pelaku-tempat, urutan proses), lalu terapkan dengan arah yang SAMA pada pasangan kedua.',
+        'Analogi Verbal & Analogi Kalimat: temukan hubungan logis paling spesifik (sebab-akibat, alat-fungsi, bagian-utuh, pelaku-alat-tujuan), lalu terapkan pada pasangan kata atau kalimat setara dengan urutan peran yang SAMA.',
+        'Penalaran Argumen (Memperkuat vs Melemahkan): bedakan premis dari kesimpulan utama. Opsi MEMPERKUAT memberi data/bukti langsung bahwa sebab benar-benar menghasilkan akibat; opsi MEMPERLEMAH menyerang celah asumsi atau memunculkan faktor pengganggu utama.',
         'Pemahaman Bacaan: baca kalimat pertanyaan terlebih dahulu, baru cari kata kuncinya di teks. Kesimpulan yang benar harus merangkum fakta teks tanpa menambahkan asumsi di luar bacaan.'
       ],
       hafal: [
         'Arah Analogi A : B = C : D → Jika A adalah ALAT dan B adalah FUNGSI, maka C wajib ALAT dan D wajib FUNGSI (jangan terbalik)',
-        'Awalan Negatif (Lawan Kata) = a-/ab- (amoral, abnormal), in-/im- (inkonstitusional), de-/dis- (degradasi, disharmoni), nir- (nirlaba)'
+        'Awalan Negatif (Lawan Kata) = a-/ab- (amoral, abnormal), in-/im- (inkonstitusional), de-/dis- (degradasi, disharmoni), nir- (nirlaba)',
+        'Uji Argumen = Coret opsi yang hanya mengulang isi teks (restatement) atau topiknya nyambung tapi tidak memengaruhi kesimpulan inti'
       ],
       tips: [
         'JEBAKAN: Pada soal Antonim, opsi A sering kali adalah SINONIM dari kata soal untuk menjebak peserta yang terburu-buru!',
-        'TRIK CEPAT: Jika ragu pada analogi, persempit kalimat hubungannya dengan menyertakan kata kerja aktif.'
+        'TRIK CEPAT: Pada soal Memperkuat/Melemahkan Argumen, baca kata perintahnya (PERKUAT vs PERLEMAH) dua kali sebelum melihat opsi, lalu uji dampak setiap opsi terhadap klaim sebab-akibat utama.'
       ]
     },
     {
@@ -206,6 +213,7 @@ window.MATERI = {
         { k: 'Kerja Bersama', v: '1/t = 1/a + 1/b atau rumus cepat 2 orang: t = (a × b) / (a + b)' },
         { k: 'Perbandingan Senilai vs Berbalik', v: 'Makin banyak barang = makin mahal (Senilai: A1/A2 = B1/B2) · Makin banyak pekerja = makin cepat selesai (Berbalik: P1 × H1 = P2 × H2)' },
         { k: 'Kuantitatif X vs Y', v: 'Sederhanakan/coret angka yang sama di kedua ruas tanpa menghitung penuh' },
+        { k: 'Kecukupan Data (1) & (2)', v: 'Uji Pernyataan (1) mandiri dulu (tutup 2), lalu uji (2) mandiri (tutup 1), baru gabungkan jika belum cukup; jawaban harus TUNGGAL' },
         { k: 'Geometri Kanal & Tampungan Air', v: 'Penampang trapesium: Luas = ((a + b) / 2) × t. Volume prisma saluran = Luas alas × Panjang (L)' },
         { k: 'Diagram Batang & Tabel Data BGN/BPS', v: 'Hitung persentase efisiensi = (Realisasi / Target) × 100%; identifikasi titik capaian ekstrem (maks/min)' }
       ],
@@ -213,13 +221,15 @@ window.MATERI = {
         'Deret Angka: periksa selisih berurutan; jika angka naik-turun tajam atau panjang deret ≥ 7 suku, hampir pasti merupakan deret larik (lompat 1 suku atau lompat 2 suku).',
         'Aritmetika Sosial & Persen: Harga jual setelah untung u% = (100 + u)% × Harga Beli. Diskon ganda 20% + 10% bukan 30%, melainkan bayar 0,8 × 0,9 = 72% (total diskon 28%).',
         'Kecepatan, Jarak, Waktu: Jarak (S) = Kecepatan (v) × Waktu (t). Waktu berpapasan (berangkat bersamaan) = Jarak Total / (v1 + v2). Waktu menyusul = Selisih Jarak / (v2 - v1).',
-        'Perbandingan Kuantitatif (X vs Y): bandingkan nilai X dan Y dengan menyederhanakan bentuk aljabar atau menguji angka ekstrem. Jika tanda hubungan berubah-ubah saat diuji angka positif vs negatif/pecahan, pilih " hubungan X dan Y tidak dapat ditentukan".'
+        'Perbandingan Kuantitatif (X vs Y): bandingkan nilai X dan Y dengan menyederhanakan bentuk aljabar atau menguji angka ekstrem. Jika tanda hubungan berubah-ubah saat diuji angka positif vs negatif/pecahan, pilih " hubungan X dan Y tidak dapat ditentukan".',
+        'Kecukupan Data (Pernyataan 1 & 2): tidak perlu mencari nilai akhir jika sudah yakin hasilnya TUNGGAL. Selalu uji pernyataan (1) dan (2) secara terpisah lebih dulu (waspadai jebakan kuadrat/negatif/pecahan 0<x<1 yang menghasilkan 2 kemungkinan).'
       ],
       hafal: [
         'Pecahan Istimewa = 12,5% = 1/8 · 20% = 1/5 · 25% = 1/4 · 33,33% = 1/3 · 37,5% = 3/8 · 62,5% = 5/8 · 75% = 3/4 · 87,5% = 7/8',
         'Kerja Bersama 2 Orang = Waktu selesai t = (a × b) / (a + b)',
         'Perbandingan Berbalik Nilai (Pekerja × Hari) = P1 × H1 = P2 × H2 (Total beban kerja = Jumlah pekerja × waktu)',
-        'Waktu Berpapasan = Jarak Total / (v1 + v2)'
+        'Waktu Berpapasan = Jarak Total / (v1 + v2)',
+        'Alur Kecukupan Data = Uji (1) saja → Uji (2) saja → Jika keduanya gagal, baru uji (1)+(2) bersama-sama'
       ],
       tips: [
         'JEBAKAN: Pada soal "pekerjaan terhenti selama k hari", sisa beban kerja dihitung dari sisa hari seharusnya dibagi sisa hari yang tersedia.',

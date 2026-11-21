@@ -1,0 +1,37 @@
+[
+  {
+    "date": "2026-11-17",
+    "claim": "Nilai Ambang Batas SKD CPNS Umum tetap mengacu KepmenPANRB No. 321 Tahun 2024: 110 soal / 100 menit (TWK 30 >= 65, TIU 35 >= 80, TKP 45 >= 166).",
+    "url": "https://jdih.menpan.go.id",
+    "sourceType": "OFFICIAL",
+    "status": "CONFIRMED"
+  },
+  {
+    "date": "2026-11-17",
+    "claim": "Komitmen rekrutmen CPNS 2026 (~150-158 ribu formasi prioritas: Polhut, Manggala Agni, Guru Sekolah Terintegrasi/Unggul Garuda) dan penataan ASN diumumkan dalam Siaran Pers KemenPANRB No. 378/HUMAS-MENPANRB/2026.",
+    "url": "https://www.menpan.go.id",
+    "sourceType": "OFFICIAL",
+    "status": "CONFIRMED"
+  },
+  {
+    "date": "2026-11-17",
+    "claim": "KUHP Nasional (UU No. 1 Tahun 2023) mulai berlaku penuh Januari 2026; UU ASN terbaru adalah UU No. 20 Tahun 2023; pelindungan data pribadi diatur UU No. 27 Tahun 2022 (UU PDP).",
+    "url": "https://peraturan.go.id",
+    "sourceType": "OFFICIAL",
+    "status": "CONFIRMED"
+  },
+  {
+    "date": "2026-11-17",
+    "claim": "Wacana BKN terkait transformasi sistem CAT fleksibel / masa berlaku skor 2 tahun seperti TOEFL masih berupa kajian/wacana kebijakan, belum mengubah format 110 soal TWK-TIU-TKP.",
+    "url": "https://www.bkn.go.id",
+    "sourceType": "OFFICIAL",
+    "status": "UNCONFIRMED"
+  },
+  {
+    "date": "2026-11-17",
+    "claim": "Isu penghapusan Sinonim/Antonim atau penambahan subtes baru di luar TWK/TIU/TKP pada SKD CPNS 2026.",
+    "url": "https://sscasn.bkn.go.id",
+    "sourceType": "RUMOR",
+    "status": "DEBUNKED"
+  }
+]

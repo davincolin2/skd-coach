@@ -1,0 +1,111 @@
+[
+  {
+    "date": "2026-11-21",
+    "slot": "manual",
+    "status": "SUCCESS",
+    "added": [
+      "TWK-097", "TWK-098", "TWK-099", "TWK-100", "TWK-101", "TWK-102",
+      "TIU-113", "TIU-114", "TIU-115", "TIU-116", "TIU-117", "TIU-118", "TIU-119",
+      "TKP-145", "TKP-146", "TKP-147", "TKP-148", "TKP-149", "TKP-150", "TKP-151", "TKP-152", "TKP-153"
+    ],
+    "fixed": [],
+    "allowedEdits": [],
+    "gapsTargeted": [
+      "TIU Kecukupan Data",
+      "TIU Memperkuat/Melemahkan Argumen",
+      "TIU Matriks Figural 3x3",
+      "TIU Jaring-Jaring Kubus 3D",
+      "TIU Deret Huruf & Pecahan Dua Larik",
+      "TWK KUHP Nasional & Checks-Balances",
+      "TWK EYD V & Wacana Panjang",
+      "TKP Service Recovery, AI/PDP, Netralitas & Anti-Radikalisme"
+    ],
+    "validator": "PASS",
+    "totals": { "TWK": 102, "TIU": 119, "TKP": 153, "all": 374 },
+    "commit": null,
+    "notes": "Setup validator gate (tools/validate.js), panel Update Terbaru, 4 kartu metode materi.js, 5 visual SVG/skema baru, & backfill +22 soal variasi CAT 2026 (352 -> 374)."
+  },
+  {
+    "date": "2026-11-20",
+    "slot": "manual",
+    "status": "SUCCESS",
+    "added": [
+      "TWK-091", "TWK-092", "TWK-093", "TWK-094", "TWK-095", "TWK-096",
+      "TIU-106", "TIU-107", "TIU-108", "TIU-109", "TIU-110", "TIU-111", "TIU-112",
+      "TKP-136", "TKP-137", "TKP-138", "TKP-139", "TKP-140", "TKP-141", "TKP-142", "TKP-143", "TKP-144"
+    ],
+    "fixed": [],
+    "allowedEdits": [],
+    "gapsTargeted": [
+      "Deret Dua Larik",
+      "Tabel & Grafik",
+      "Kuantitatif Geometri",
+      "Silogisme & Modus",
+      "Penalaran Analitis",
+      "Deret Serial Figural",
+      "Service Recovery",
+      "AI & UU PDP"
+    ],
+    "validator": "PASS",
+    "totals": { "TWK": 96, "TIU": 112, "TKP": 144, "all": 352 },
+    "commit": "06b8c7f",
+    "notes": "Manual follow-up batch: +22 soal HOTS (330 -> 352), filter batch_baru & era eksplisit, plus 6 SVG baru."
+  },
+  {
+    "date": "2026-11-19",
+    "slot": "A",
+    "status": "MISSED",
+    "added": [],
+    "fixed": [],
+    "allowedEdits": [],
+    "gapsTargeted": [],
+    "validator": "PASS",
+    "totals": { "TWK": 90, "TIU": 105, "TKP": 135, "all": 330 },
+    "commit": null,
+    "notes": "Slot 12:11 WIB terlewat (PC/Antigravity tidak aktif saat jadwal cron)."
+  },
+  {
+    "date": "2026-11-18",
+    "slot": "A",
+    "status": "MISSED",
+    "added": [],
+    "fixed": [],
+    "allowedEdits": [],
+    "gapsTargeted": [],
+    "validator": "PASS",
+    "totals": { "TWK": 90, "TIU": 105, "TKP": 135, "all": 330 },
+    "commit": null,
+    "notes": "Slot 12:11 WIB terlewat (PC/Antigravity tidak aktif saat jadwal cron)."
+  },
+  {
+    "date": "2026-11-17",
+    "slot": "A",
+    "status": "SUCCESS",
+    "added": [],
+    "fixed": [
+      { "id": "TIU-053", "reason": "Rotasi menjadi diagram lingkaran alokasi anggaran + SVG (sebelum aturan immutability)" }
+    ],
+    "allowedEdits": [],
+    "gapsTargeted": ["Diagram Lingkaran SVG", "Balance Panjang Opsi", "PREDIKSI_2026"],
+    "validator": "PASS",
+    "totals": { "TWK": 90, "TIU": 105, "TKP": 135, "all": 330 },
+    "commit": "c95adfe",
+    "notes": "Cron harian lama (rotate only): update PREDIKSI_2026, +2 kartu materi.js (Anti-Intervensi Data, Once-Only), rotasi TIU-053 pie-chart SVG."
+  },
+  {
+    "date": "2026-11-16",
+    "slot": "A",
+    "status": "SUCCESS",
+    "added": [],
+    "fixed": [
+      { "id": "TWK-077", "reason": "Rotasi skenario WBS -> split-contract pengadaan (sebelum aturan immutability)" },
+      { "id": "TIU-079", "reason": "Rotasi soal diskon -> denah peta berskala + SVG (sebelum aturan immutability)" }
+    ],
+    "allowedEdits": [],
+    "gapsTargeted": ["SVG Guardrail", "PREDIKSI_2026"],
+    "validator": "PASS",
+    "totals": { "TWK": 90, "TIU": 105, "TKP": 135, "all": 330 },
+    "commit": "7930b0a",
+    "notes": "Cron harian lama (rotate only): update PREDIKSI_2026, tambah Anti Split-Contract & deepfake di materi.js, rotasi 2 soal & SVG."
+  }
+]
