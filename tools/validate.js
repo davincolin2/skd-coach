@@ -249,10 +249,11 @@ const currentHashes = {};
 Q.forEach(q => { if (q && q.id) currentHashes[q.id] = hashQuestion(q); });
 
 let ledgerInitialized = false;
+let prevHashes = null;
 if (fs.existsSync(LEDGER_PATH)) {
   try {
     const ledger = JSON.parse(fs.readFileSync(LEDGER_PATH, 'utf8'));
-    const prevHashes = ledger.hashes || {};
+    prevHashes = ledger.hashes || {};
     for (const [id, oldHash] of Object.entries(prevHashes)) {
       if (!currentHashes[id]) {
         fail('IMMUTABLE_REMOVED', `Existing id ${id} was removed from questions.js (retire instead of deleting)`, { id });
@@ -368,7 +369,8 @@ function computeCoverage() {
 
 const passed = errors.length === 0;
 
-if (passed && !NO_UPDATE_LEDGER) {
+const hashesChanged = !prevHashes || JSON.stringify(prevHashes) !== JSON.stringify(currentHashes);
+if (passed && !NO_UPDATE_LEDGER && (ledgerInitialized || hashesChanged)) {
   fs.writeFileSync(
     LEDGER_PATH,
     JSON.stringify({ updatedAt: new Date().toISOString(), count: Q.length, hashes: currentHashes }, null, 2) + '\n',
