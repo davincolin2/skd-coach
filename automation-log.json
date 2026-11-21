@@ -1,6 +1,22 @@
 [
   {
     "date": "2026-11-21",
+    "slot": "weekly-learn",
+    "status": "SUCCESS",
+    "added": [],
+    "fixed": [],
+    "allowedEdits": [],
+    "gapsTargeted": [
+      "Desirable Difficulty / Adaptive Level (70-85% rolling accuracy)",
+      "pickSimQuestions HOTS minLevel filter"
+    ],
+    "validator": "PASS",
+    "totals": { "TWK": 102, "TIU": 119, "TKP": 153, "all": 374 },
+    "commit": null,
+    "notes": "Audit ilmu belajar mingguan: implementasi tingkat adaptif (tingkat 1-3 mengikuti akurasi bergulir 70-85%) di pickQuestions/adaptiveLevelInfo, badge L1-L3 di soal, & perbaikan filter HOTS pickSimQuestions."
+  },
+  {
+    "date": "2026-11-21",
     "slot": "manual",
     "status": "SUCCESS",
     "added": [

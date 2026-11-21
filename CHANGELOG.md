@@ -2,6 +2,10 @@
 
 Riwayat pembaruan bank soal, materi ringkas, dan sistem automasi (terbaru di atas). Dihasilkan dari `automation-log.json`.
 
+## 2026-11-21 — `SUCCESS` (weekly-learn · adaptive difficulty)
+- **Soal baru:** `0` · **Total bank:** `374` soal (`102 TWK | 119 TIU | 153 TKP`)
+- **Peningkatan ilmu belajar (#1):** Implementasi *Desirable Difficulty* adaptif (`CONFIG.ADAPTIF`, `rollingAccFor()`, `adaptiveLevelInfo()`, integrasi soft-penalty di `pickQuestions()` untuk menjaga zona akurasi bergulir 70–85%), badge tingkat `L1 Dasar` / `L2 Aplikasi` / `L3 HOTS` di `mountQuestion()`, tampilan target level di `Blok Fokus` & `Latihan Topik`, serta perbaikan filter `minLevel: 3` HOTS di `pickSimQuestions()`.
+
 ## 2026-11-21 — `SUCCESS` (manual · backfill + setup)
 - **Soal baru:** `+22` (`TWK-097..102`, `TIU-113..119`, `TKP-145..153`)
 - **Total bank:** `374` soal (`102 TWK | 119 TIU | 153 TKP` — rasio presisi `30:35:45`)

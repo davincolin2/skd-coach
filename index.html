@@ -460,6 +460,7 @@ const CONFIG = {
   JAM_BELAJAR: [60, 90, 120], JAM_DEFAULT: 90,
   ESTIMASI_N: 3,                 // estimasi skor = rata-rata N latihan/simulasi terakhir
   FOKUS: { AKURASI_PINDAH: 0.8, SESI_BERTURUT: 2, MIN_SOAL_SESI: 2, AKURASI_RECENT: 5 },
+  ADAPTIF: { LO: 0.70, HI: 0.85, MIN_SOAL: 3, BERAT_TINGKAT: 6.5, TARGET_AWAL: 1.5 },
 
   LEITNER: { INTERVAL_HARI: [1, 3, 7] },   // kotak 1, 2, 3
   POMODORO: { FOKUS: 25, ISTIRAHAT: 5, XP: 30 },
@@ -1124,23 +1125,65 @@ function allocateByLargestRemainder(prop, total) {
   rows.forEach(r => { out[r.k] = r.base; });
   return out;
 }
+function rollingAccFor(subtes, topik, user) {
+  const A = CONFIG.ADAPTIF, logs = userSortedLog(user);
+  if (topik) {
+    const ts = [];
+    logs.forEach(e => {
+      if (subtes && e.subtes !== subtes) return;
+      const x = e.topics && e.topics[topik];
+      if (x && x[1] > 0) ts.push({ b: x[0] || 0, t: x[1], p: x[2] || 0, s: e.subtes });
+    });
+    const rec = ts.slice(-CONFIG.FOKUS.AKURASI_RECENT), tot = sum(rec.map(x => x.t));
+    if (tot >= A.MIN_SOAL) {
+      const isTkp = subtes === 'TKP' || (rec[0] && rec[0].s === 'TKP');
+      const acc = clamp(isTkp ? sum(rec.map(x => x.p)) / (CONFIG.SKOR.TKP_MAX * tot) : sum(rec.map(x => x.b)) / tot, 0, 1);
+      return { acc, n: tot, scope: 'topik' };
+    }
+  }
+  if (subtes) {
+    const es = logs.filter(e => e.subtes === subtes && e.total > 0).slice(-CONFIG.FOKUS.AKURASI_RECENT);
+    const tot = sum(es.map(e => e.total));
+    if (tot >= A.MIN_SOAL) {
+      const acc = clamp(subtes === 'TKP' ? sum(es.map(e => e.pts || 0)) / (CONFIG.SKOR.TKP_MAX * tot) : sum(es.map(e => e.benar || 0)) / tot, 0, 1);
+      return { acc, n: tot, scope: 'subtes' };
+    }
+  }
+  return { acc: null, n: 0, scope: 'awal' };
+}
+function adaptiveLevelInfo(subtes, topik, user) {
+  const A = CONFIG.ADAPTIF, r = rollingAccFor(subtes, topik, user);
+  if (r.acc == null) return { target: A.TARGET_AWAL, acc: null, n: 0, scope: 'awal', label: 'L1–L2 Fondasi (awal)', band: 'init' };
+  if (r.acc < A.LO) return { target: 1.2, acc: r.acc, n: r.n, scope: r.scope, label: 'L1–L2 Penguatan (' + Math.round(r.acc * 100) + '% < ' + Math.round(A.LO * 100) + '%)', band: 'low' };
+  if (r.acc > A.HI) return { target: 2.9, acc: r.acc, n: r.n, scope: r.scope, label: 'L3 HOTS (' + Math.round(r.acc * 100) + '% > ' + Math.round(A.HI * 100) + '%)', band: 'high' };
+  const t = 1.8 + ((r.acc - A.LO) / (A.HI - A.LO)) * 0.4;
+  return { target: Math.round(t * 100) / 100, acc: r.acc, n: r.n, scope: r.scope, label: 'L2 Aplikasi (zona optimal ' + Math.round(r.acc * 100) + '%)', band: 'mid' };
+}
 function pickQuestions(o) {
   const ex = o.exclude || [], avoid = o.avoid || [];
   const avoidMap = o.avoidMap || recentUserAvoidMap(o.user || activeUser(), 3);
   avoid.forEach(id => { if (!avoidMap[id] || avoidMap[id] < 24) avoidMap[id] = 24; });
   const now = Date.now(), h24 = 86400000;
-  let list = shuffle(QLIST.filter(q => !q.retired && (!o.subtes || q.subtes === o.subtes) && (!o.topik || q.topik === o.topik) && matchesEra(q, o.era) && ex.indexOf(q.id) < 0 && (!o.maxLevel || q.tingkat <= o.maxLevel)));
+  let list = shuffle(QLIST.filter(q => !q.retired && (!o.subtes || q.subtes === o.subtes) && (!o.topik || q.topik === o.topik) && matchesEra(q, o.era) && ex.indexOf(q.id) < 0 && (!o.minLevel || q.tingkat >= o.minLevel) && (!o.maxLevel || q.tingkat <= o.maxLevel)));
   const predBonusMap = {};
   if (o.predictive) {
     cpnsPredictionReport(o.user).forEach(r => { predBonusMap[r.subtes + '|' + r.topik] = r.priorityScore; });
   }
+  const useAdapt = o.adaptive !== false && !o.minLevel && !o.maxLevel;
+  const lvlCache = {};
   list = list.map(q => {
     const s = qStat(q.id);
     const inAvoid = avoidMap[q.id] || 0;
     const recentPractice = s.last && (now - s.last < h24) ? 7 : 0;
     const weaknessPull = s.n ? (1 - s.c / s.n) * 9 : 3.5; // soal belum tersentuh atau sering salah diprioritaskan
-    const predPull = o.predictive ? (predBonusMap[q.subtes + '|' + q.topik] || 0) * 8 + (q.tingkat >= 2 ? 1.5 : 0) + (q.dibuat ? 3.5 : 0) : 0;
-    const score = s.n * 13 + inAvoid + recentPractice - weaknessPull - predPull + Math.random() * 5.5;
+    const predPull = o.predictive ? (predBonusMap[q.subtes + '|' + q.topik] || 0) * 8 + (q.dibuat ? 3.5 : 0) : 0;
+    let levelPenalty = 0;
+    if (useAdapt) {
+      const lk = q.subtes + '|' + q.topik;
+      const tgt = o.targetLevel != null ? o.targetLevel : (lvlCache[lk] || (lvlCache[lk] = adaptiveLevelInfo(q.subtes, q.topik, o.user).target));
+      levelPenalty = Math.abs((q.tingkat || 2) - tgt) * CONFIG.ADAPTIF.BERAT_TINGKAT;
+    }
+    const score = s.n * 13 + inAvoid + recentPractice + levelPenalty - weaknessPull - predPull + Math.random() * 5.5;
     return { q, k: score };
   }).sort((a, b) => a.k - b.k);
   return list.slice(0, o.n).map(x => x.q.id);
@@ -1148,7 +1191,7 @@ function pickQuestions(o) {
 function pickSimQuestions(subtes, n, user) {
   const prop = CONFIG.PROPORSI_TOPIK && CONFIG.PROPORSI_TOPIK[subtes];
   const avoidMap = recentUserAvoidMap(user || activeUser(), 3);
-  if (!prop) return pickQuestions({ subtes, n, avoidMap, user });
+  if (!prop) return pickQuestions({ subtes, n, adaptive: false, avoidMap, user });
   const quotas = allocateByLargestRemainder(prop, n);
   const chosen = [];
   shuffle(Object.keys(quotas)).forEach(t => {
@@ -1158,18 +1201,16 @@ function pickSimQuestions(subtes, n, user) {
     const poolTopik = QLIST.filter(q => !q.retired && q.subtes === subtes && q.topik === t && chosen.indexOf(q.id) < 0);
     if (poolTopik.length >= quota * 2 && quota >= 4) {
       const nHots = Math.max(1, Math.round(quota * 0.25));
-      const hotsPicked = pickQuestions({ subtes, topik: t, n: nHots, exclude: chosen, avoidMap, user }).filter(id => {
-        const q = getQ(id); return q && q.tingkat >= 3;
-      });
+      const hotsPicked = pickQuestions({ subtes, topik: t, n: nHots, minLevel: 3, adaptive: false, exclude: chosen, avoidMap, user });
       hotsPicked.forEach(id => chosen.push(id));
       const rem = quota - hotsPicked.length;
-      if (rem > 0) pickQuestions({ subtes, topik: t, n: rem, exclude: chosen, avoidMap, user }).forEach(id => chosen.push(id));
+      if (rem > 0) pickQuestions({ subtes, topik: t, n: rem, adaptive: false, exclude: chosen, avoidMap, user }).forEach(id => chosen.push(id));
     } else {
-      pickQuestions({ subtes, topik: t, n: quota, exclude: chosen, avoidMap, user }).forEach(id => chosen.push(id));
+      pickQuestions({ subtes, topik: t, n: quota, adaptive: false, exclude: chosen, avoidMap, user }).forEach(id => chosen.push(id));
     }
   });
   if (chosen.length < n) {
-    pickQuestions({ subtes, n: n - chosen.length, exclude: chosen, avoidMap, user }).forEach(id => chosen.push(id));
+    pickQuestions({ subtes, n: n - chosen.length, adaptive: false, exclude: chosen, avoidMap, user }).forEach(id => chosen.push(id));
   }
   return shuffle(chosen).slice(0, n);
 }
@@ -2884,8 +2925,10 @@ function mountQuestion(host, q, o) {
   const hasVisOpt = !!optionVisualSVG(q, 0);
   const t0 = Date.now();
   const era = questionEraInfo(q);
+  const lvlLabel = q.tingkat === 1 ? 'L1 Dasar' : q.tingkat === 3 ? 'L3 HOTS' : 'L2 Aplikasi';
   host.innerHTML = '<article class="qcard card sub-' + esc(q.subtes) + ' fadein" aria-labelledby="qt">' +
     '<div class="row between"><div class="qhead">' + subChip(q.subtes) + '<span class="chip">' + esc(q.topik) + '</span>' +
+    '<span class="chip ' + (q.tingkat === 3 ? 'red' : q.tingkat === 1 ? 'green' : '') + '" title="Tingkat kesulitan soal (adaptif)">' + lvlLabel + '</span>' +
     '<span class="chip ' + era.cls + '" title="' + esc(era.title) + '">' + era.badge + '</span>' +
     (q.verified ? '' : '<span class="unv">Belum diverifikasi</span>') + '</div>' +
     '<div class="row">' + (o.total ? '<span class="chip">Soal ' + (o.idx + 1) + '/' + o.total + '</span>' : '') + (o.perQSec ? '<span class="timer chip" id="qtimer" aria-label="Sisa waktu soal"></span>' : '') + '</div></div>' +
@@ -3666,7 +3709,8 @@ function mountStep(host, d, step) {
         } else p.qids = [];
         save();
       }
-      quizStep(host, d, step, p, (p.topik ? '<div class="notice" style="margin-bottom:14px"><strong>Topik fokus: ' + esc(p.topik) + ' (' + esc(p.subtes) + ')</strong> — ' + esc(p.alasan) + '. Kerjakan SOAL DULU; pembahasan baru dibuka setelah kamu menjawab.</div>' : '') + (p.topik ? '<details class="card flat" style="margin-bottom:12px"><summary><span>' + ic('bulb', 'sm') + ' Baca Peta Konsep &amp; Jembatan Keledai ' + esc(p.topik) + ' dulu (2 menit)</span></summary>' + materiBlock(p.subtes, p.topik) + '</details>' : ''));
+      const lvlInfo = p.topik ? adaptiveLevelInfo(p.subtes, p.topik) : null;
+      quizStep(host, d, step, p, (p.topik ? '<div class="notice" style="margin-bottom:14px"><strong>Topik fokus: ' + esc(p.topik) + ' (' + esc(p.subtes) + ')</strong> — ' + esc(p.alasan) + (lvlInfo ? ' · <strong>Level adaptif:</strong> ' + esc(lvlInfo.label) : '') + '. Kerjakan SOAL DULU; pembahasan baru dibuka setelah kamu menjawab.</div>' : '') + (p.topik ? '<details class="card flat" style="margin-bottom:12px"><summary><span>' + ic('bulb', 'sm') + ' Baca Peta Konsep &amp; Jembatan Keledai ' + esc(p.topik) + ' dulu (2 menit)</span></summary>' + materiBlock(p.subtes, p.topik) + '</details>' : ''));
       bindMateriInteractions(host); break;
     }
     case 'campur': { if (!p.qids) { p.qids = pickMixed(step.n); save(); } quizStep(host, d, step, p, step.perQSec ? '<div class="notice" style="margin-bottom:14px">Batas ' + step.perQSec + ' detik per soal. Jangan terpaku satu soal.</div>' : ''); break; }
@@ -3863,7 +3907,11 @@ function renderPractice(v, args) {
     sT.innerHTML = '<option value="">Semua topik</option>' + (s ? topicsOf(s).map(t => '<option value="' + esc(t) + '">' + esc(t) + ' (' + bankCount(s, t, era) + ')</option>').join('') : '');
     sT.disabled = !s; upd();
   }
-  function upd() { const n = bankCount(sS.value || null, sT.value || null, sE.value || null); avail.textContent = 'Tersedia di bank soal: ' + n + ' soal' + (n < +$('#pN', v).value ? ' (latihan akan memakai semua yang ada).' : '.'); }
+  function upd() {
+    const s = sS.value || null, t = sT.value || null, n = bankCount(s, t, sE.value || null);
+    const lvl = s ? adaptiveLevelInfo(s, t) : null;
+    avail.textContent = 'Tersedia di bank soal: ' + n + ' soal' + (n < +$('#pN', v).value ? ' (latihan akan memakai semua yang ada)' : '') + (lvl ? ' · Level adaptif: ' + lvl.label + '.' : '.');
+  }
   sS.onchange = fillTopics; sE.onchange = fillTopics; sT.onchange = upd; $('#pN', v).onchange = upd; fillTopics();
   if (initTop && sS.value) { sT.value = initTop; upd(); }
   function startNow(backUrl, forceAuto) {
@@ -3931,10 +3979,10 @@ function diagPick() {
     const tps = topicsOf(s).filter(t => bankCount(s, t) > 0), mine = [];
     let idx = 0, guard = 0;
     while (mine.length < CONFIG.DIAGNOSTIK_PER_SUBTES && tps.length && guard++ < 60) {
-      const got = pickQuestions({ subtes: s, topik: tps[idx % tps.length], n: 1, exclude: mine });
+      const got = pickQuestions({ subtes: s, topik: tps[idx % tps.length], n: 1, adaptive: false, exclude: mine });
       if (got.length) mine.push(got[0]); idx++;
     }
-    if (mine.length < CONFIG.DIAGNOSTIK_PER_SUBTES) pickQuestions({ subtes: s, n: CONFIG.DIAGNOSTIK_PER_SUBTES, exclude: mine }).slice(0, CONFIG.DIAGNOSTIK_PER_SUBTES - mine.length).forEach(x => mine.push(x));
+    if (mine.length < CONFIG.DIAGNOSTIK_PER_SUBTES) pickQuestions({ subtes: s, n: CONFIG.DIAGNOSTIK_PER_SUBTES, adaptive: false, exclude: mine }).slice(0, CONFIG.DIAGNOSTIK_PER_SUBTES - mine.length).forEach(x => mine.push(x));
     mine.forEach(x => ids.push(x));
   });
   return ids;
@@ -4806,7 +4854,7 @@ function init() {
   render();
 }
 // Antarmuka kecil untuk pengujian/debug di console (window.SKD).
-window.SKD = { CONFIG, buildCalendar, dayType, menuFor, scoreSubtes, scaleScore, passInfo, validateQuestion, evalAnswer, estimates, simPlanInfo, leitnerResult, addMistake, addDays, diffDays, today, switchUserProfile, allUserProfiles, getState: () => state, setState: s => { state = normalize(s); save(); rebuildQuestions(); render(); } };
+window.SKD = { CONFIG, buildCalendar, dayType, menuFor, scoreSubtes, scaleScore, passInfo, validateQuestion, evalAnswer, estimates, simPlanInfo, leitnerResult, addMistake, addDays, diffDays, today, switchUserProfile, allUserProfiles, adaptiveLevelInfo, pickQuestions, getState: () => state, setState: s => { state = normalize(s); save(); rebuildQuestions(); render(); } };
 init();
 })();
 </script>
